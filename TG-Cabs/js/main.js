@@ -1,4 +1,4 @@
-// RK Travels – main.js
+// TG CABS – main.js
 
 /* ── Navbar scroll effect ── */
 const navbar = document.querySelector('.navbar');
@@ -87,23 +87,95 @@ function setActiveNav() {
 }
 setActiveNav();
 
-/* ── Inquiry / Booking form submit ── */
-document.querySelectorAll('.form-submit, .contact-form-btn, .booking-form-btn').forEach(btn => {
-  btn.addEventListener('click', function(e) {
+/* ── WhatsApp Form Integration ── */
+const WA_NUMBER = '919676833444';
+
+function getFormData(form) {
+  const data = [];
+  form.querySelectorAll('.form-group').forEach(group => {
+    const label = group.querySelector('label');
+    const input = group.querySelector('input, select, textarea');
+    if (label && input && input.value.trim()) {
+      data.push({ label: label.textContent.trim(), value: input.value.trim() });
+    }
+  });
+  return data;
+}
+
+function getFormTitle(form) {
+  if (form.id === 'heroForm') return '🚕 New Quick Enquiry';
+  if (form.id === 'contactForm') return '📩 New Contact Message';
+  if (form.id === 'bookingForm') return '📋 New Booking Request';
+  return '📋 New Enquiry';
+}
+
+function buildWhatsAppMessage(form) {
+  const title = getFormTitle(form);
+  const fields = getFormData(form);
+  let msg = `${title}\n${'━'.repeat(20)}\n`;
+  fields.forEach(f => {
+    msg += `*${f.label}:* ${f.value}\n`;
+  });
+  const selectedTrip = form.querySelector('.trip-type-btn.selected .label');
+  if (selectedTrip) {
+    msg += `*Trip Type:* ${selectedTrip.textContent.trim()}\n`;
+  }
+  const terms = form.querySelector('#terms');
+  if (terms && terms.checked) {
+    msg += `\n✅ Customer agreed to contact terms.\n`;
+  }
+  msg += `${'━'.repeat(20)}\n📅 Sent on: ${new Date().toLocaleString('en-IN')}\n🌐 Via: TG Cabs Website`;
+  return msg;
+}
+
+function showToast(message) {
+  const toast = document.createElement('div');
+  toast.textContent = message;
+  Object.assign(toast.style, {
+    position: 'fixed', bottom: '100px', left: '50%', transform: 'translateX(-50%)',
+    background: '#10b981', color: 'white',
+    padding: '14px 28px', borderRadius: '50px', fontSize: '15px', fontWeight: '600',
+    zIndex: '99999', boxShadow: '0 8px 30px rgba(0,0,0,0.3)',
+    transition: 'opacity 0.4s', opacity: '0'
+  });
+  document.body.appendChild(toast);
+  requestAnimationFrame(() => toast.style.opacity = '1');
+  setTimeout(() => { toast.style.opacity = '0'; setTimeout(() => toast.remove(), 400); }, 4000);
+}
+
+document.querySelectorAll('form').forEach(form => {
+  form.addEventListener('submit', function(e) {
     e.preventDefault();
-    const form = this.closest('form');
-    if (form) {
-      const inputs = form.querySelectorAll('input[required], select[required], textarea[required]');
-      let valid = true;
-      inputs.forEach(inp => {
-        if (!inp.value.trim()) { inp.style.borderColor = '#ef4444'; valid = false; }
-        else { inp.style.borderColor = ''; }
-      });
-      if (valid) {
-        this.textContent = '✓ Request Sent! We\'ll contact you shortly.';
-        this.style.background = '#10b981';
-        setTimeout(() => { form.reset(); this.textContent = 'Send Enquiry'; this.style.background = ''; }, 4000);
+    const inputs = form.querySelectorAll('input[required], select[required], textarea[required]');
+    let valid = true;
+    inputs.forEach(inp => {
+      if (!inp.value.trim()) {
+        inp.style.borderColor = '#ef4444';
+        valid = false;
+      } else {
+        inp.style.borderColor = '';
       }
+    });
+    if (!valid) return;
+
+    // Build message and open WhatsApp
+    const message = buildWhatsAppMessage(form);
+    const encoded = encodeURIComponent(message);
+    window.open(`https://wa.me/${WA_NUMBER}?text=${encoded}`, '_blank');
+
+    // Show success feedback
+    const btn = form.querySelector('.form-submit, .contact-form-btn, .booking-form-btn');
+    if (btn) {
+      const originalHTML = btn.innerHTML;
+      btn.innerHTML = '✅ Sent to WhatsApp!';
+      btn.style.background = '#10b981';
+      showToast('✅ Redirecting to WhatsApp...');
+      setTimeout(() => {
+        form.reset();
+        btn.innerHTML = originalHTML;
+        btn.style.background = '';
+        form.querySelectorAll('.trip-type-btn').forEach(b => b.classList.remove('selected'));
+      }, 4000);
     }
   });
 });
