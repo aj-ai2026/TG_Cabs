@@ -182,7 +182,7 @@ button {
   background: var(--accent-dark);
   border-color: var(--accent-dark);
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(251, 191, 36, 0.4);
+  box-shadow: 0 8px 24px rgba(251, 191, 36, 0.6), 0 0 15px rgba(251, 191, 36, 0.4);
 }
 
 .btn-outline {
@@ -232,9 +232,11 @@ button {
 }
 
 .navbar.scrolled {
-  background: rgba(255, 255, 255, 0.97);
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.10);
-  backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .nav-inner {
@@ -1027,25 +1029,63 @@ button {
   font-weight: 400;
 }
 
-/* ── Testimonials ── */
+/* ── Testimonials (Slider Ready) ── */
 .testimonials-section {
   background: var(--light);
 }
 
-.testimonials-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+.testimonials-slider-wrap {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 20px 0;
+}
+
+.testimonials-track {
+  display: flex;
   gap: 24px;
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  will-change: transform;
 }
 
 .testimonial-card {
+  min-width: 350px;
+  max-width: 350px;
+  flex: 0 0 auto;
   background: var(--white);
   border-radius: var(--radius-md);
-  padding: 28px;
-  box-shadow: var(--shadow-sm);
+  padding: 34px 30px;
   border: 1px solid var(--border);
   transition: var(--transition);
   position: relative;
+}
+
+@media (max-width: 768px) {
+  .testimonial-card {
+    min-width: 300px;
+    max-width: 300px;
+  }
+}
+
+.slider-controls {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 30px;
+}
+
+.slider-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--border);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.slider-dot.active {
+  background: var(--accent-dark);
+  transform: scale(1.3);
 }
 
 .testimonial-card:hover {
@@ -1351,6 +1391,42 @@ button {
   transition: var(--transition);
   cursor: pointer;
   text-decoration: none;
+}
+
+.whatsapp-chat-bubble {
+  position: fixed;
+  bottom: 104px;
+  right: 28px;
+  width: max-content;
+  background: #ffffff;
+  color: #111111;
+  padding: 12px 18px;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  font-size: 14px;
+  font-weight: 600;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  z-index: 9999;
+  border: 1px solid var(--border);
+}
+.whatsapp-chat-bubble.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+.whatsapp-chat-bubble::after {
+  content: '';
+  position: absolute;
+  bottom: -7px;
+  right: 24px;
+  width: 14px;
+  height: 14px;
+  background: #ffffff;
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  transform: rotate(45deg);
 }
 
 .whatsapp-float:hover {

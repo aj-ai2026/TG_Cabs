@@ -207,6 +207,55 @@ document.querySelectorAll('.trip-type-btn').forEach(btn => {
   });
 });
 
+/* ── Testimonial Slider ── */
+const testimonialTrack = document.getElementById('testimonialTrack');
+const testimonialControls = document.getElementById('testimonialControls');
+if (testimonialTrack && testimonialControls) {
+  const cards = testimonialTrack.querySelectorAll('.testimonial-card');
+  const cardWidth = cards[0].offsetWidth + 24; // width + gap
+  let currentIndex = 0;
+  
+  // Create dots
+  cards.forEach((_, index) => {
+    const dot = document.createElement('div');
+    dot.className = 'slider-dot' + (index === 0 ? ' active' : '');
+    dot.addEventListener('click', () => goToSlide(index));
+    testimonialControls.appendChild(dot);
+  });
+
+  const dots = testimonialControls.querySelectorAll('.slider-dot');
+
+  function goToSlide(index) {
+    currentIndex = index;
+    testimonialTrack.style.transform = `translateX(-${index * cardWidth}px)`;
+    dots.forEach(d => d.classList.remove('active'));
+    dots[index].classList.add('active');
+  }
+
+  // Auto scroll
+  setInterval(() => {
+    let nextIndex = currentIndex + 1;
+    if (nextIndex >= cards.length) nextIndex = 0;
+    goToSlide(nextIndex);
+  }, 5000);
+}
+
+/* ── WhatsApp Chat Bubble ── */
+const waBubble = document.getElementById('waChatBubble');
+const waBtn = document.getElementById('whatsappBtn');
+if (waBubble) {
+  // Show bubble after 3 seconds
+  setTimeout(() => {
+    waBubble.classList.add('show');
+  }, 3000);
+  
+  if (waBtn) {
+    waBtn.addEventListener('click', () => {
+      waBubble.classList.remove('show');
+    });
+  }
+}
+
 /* ── Smooth scroll for anchor links ── */
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', function(e) {
