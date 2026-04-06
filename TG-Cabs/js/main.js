@@ -214,3 +214,203 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
   });
 });
+
+/* ── City Autocomplete for From/To fields ── */
+const INDIAN_CITIES = [
+  // Telangana
+  "Hyderabad, Telangana","Warangal, Telangana","Nizamabad, Telangana","Karimnagar, Telangana",
+  "Khammam, Telangana","Mahbubnagar, Telangana","Nalgonda, Telangana","Siddipet, Telangana",
+  "Adilabad, Telangana","Suryapet, Telangana","Mancherial, Telangana","Ramagundam, Telangana",
+  "Miryalaguda, Telangana","Jagtial, Telangana","Bodhan, Telangana","Kamareddy, Telangana",
+  "Kothagudem, Telangana","Zaheerabad, Telangana","Sangareddy, Telangana","Medak, Telangana",
+  "Wanaparthy, Telangana","Jangaon, Telangana","Bhongir, Telangana","Gadwal, Telangana",
+  "Srisailam, Telangana","Yadgirigutta, Telangana","Vargal, Telangana",
+  // Andhra Pradesh
+  "Visakhapatnam, Andhra Pradesh","Vijayawada, Andhra Pradesh","Guntur, Andhra Pradesh",
+  "Nellore, Andhra Pradesh","Kurnool, Andhra Pradesh","Tirupati, Andhra Pradesh",
+  "Rajahmundry, Andhra Pradesh","Kadapa, Andhra Pradesh","Kakinada, Andhra Pradesh",
+  "Anantapur, Andhra Pradesh","Eluru, Andhra Pradesh","Ongole, Andhra Pradesh",
+  "Srikakulam, Andhra Pradesh","Chittoor, Andhra Pradesh","Machilipatnam, Andhra Pradesh",
+  "Proddatur, Andhra Pradesh","Tenali, Andhra Pradesh","Narasaraopet, Andhra Pradesh",
+  "Amaravati, Andhra Pradesh","Hindupur, Andhra Pradesh","Vizianagaram, Andhra Pradesh",
+  // Maharashtra
+  "Mumbai, Maharashtra","Pune, Maharashtra","Nagpur, Maharashtra","Nashik, Maharashtra",
+  "Aurangabad, Maharashtra","Solapur, Maharashtra","Kolhapur, Maharashtra","Thane, Maharashtra",
+  "Navi Mumbai, Maharashtra","Sangli, Maharashtra","Amravati, Maharashtra","Latur, Maharashtra",
+  "Ahmednagar, Maharashtra","Satara, Maharashtra","Jalgaon, Maharashtra","Akola, Maharashtra",
+  "Parbhani, Maharashtra","Ratnagiri, Maharashtra","Mahabaleshwar, Maharashtra",
+  "Shirdi, Maharashtra","Lonavala, Maharashtra",
+  // Karnataka
+  "Bengaluru, Karnataka","Mysuru, Karnataka","Mangaluru, Karnataka","Hubli, Karnataka",
+  "Dharwad, Karnataka","Belgaum, Karnataka","Gulbarga, Karnataka","Davangere, Karnataka",
+  "Bellary, Karnataka","Shimoga, Karnataka","Tumkur, Karnataka","Udupi, Karnataka",
+  "Hassan, Karnataka","Bijapur, Karnataka","Hampi, Karnataka","Coorg, Karnataka",
+  // Tamil Nadu
+  "Chennai, Tamil Nadu","Coimbatore, Tamil Nadu","Madurai, Tamil Nadu","Tiruchirappalli, Tamil Nadu",
+  "Salem, Tamil Nadu","Tirunelveli, Tamil Nadu","Erode, Tamil Nadu","Vellore, Tamil Nadu",
+  "Thanjavur, Tamil Nadu","Ooty, Tamil Nadu","Kodaikanal, Tamil Nadu","Kanchipuram, Tamil Nadu",
+  "Mahabalipuram, Tamil Nadu","Pondicherry, Tamil Nadu","Rameswaram, Tamil Nadu",
+  // Kerala
+  "Thiruvananthapuram, Kerala","Kochi, Kerala","Kozhikode, Kerala","Kollam, Kerala",
+  "Thrissur, Kerala","Alappuzha, Kerala","Kannur, Kerala","Palakkad, Kerala",
+  "Munnar, Kerala","Wayanad, Kerala","Thekkady, Kerala","Kumarakom, Kerala","Alleppey, Kerala",
+  // Delhi & NCR
+  "New Delhi, Delhi","Noida, Uttar Pradesh","Gurgaon, Haryana","Faridabad, Haryana",
+  "Ghaziabad, Uttar Pradesh","Greater Noida, Uttar Pradesh",
+  // Rajasthan
+  "Jaipur, Rajasthan","Jodhpur, Rajasthan","Udaipur, Rajasthan","Kota, Rajasthan",
+  "Ajmer, Rajasthan","Bikaner, Rajasthan","Jaisalmer, Rajasthan","Mount Abu, Rajasthan",
+  "Pushkar, Rajasthan","Alwar, Rajasthan","Bhilwara, Rajasthan",
+  // Gujarat
+  "Ahmedabad, Gujarat","Surat, Gujarat","Vadodara, Gujarat","Rajkot, Gujarat",
+  "Gandhinagar, Gujarat","Bhavnagar, Gujarat","Junagadh, Gujarat","Dwarka, Gujarat",
+  "Somnath, Gujarat","Kutch, Gujarat","Gir, Gujarat",
+  // Uttar Pradesh
+  "Lucknow, Uttar Pradesh","Varanasi, Uttar Pradesh","Agra, Uttar Pradesh","Kanpur, Uttar Pradesh",
+  "Allahabad, Uttar Pradesh","Meerut, Uttar Pradesh","Mathura, Uttar Pradesh","Ayodhya, Uttar Pradesh",
+  "Gorakhpur, Uttar Pradesh","Aligarh, Uttar Pradesh","Bareilly, Uttar Pradesh",
+  // Madhya Pradesh
+  "Bhopal, Madhya Pradesh","Indore, Madhya Pradesh","Gwalior, Madhya Pradesh","Jabalpur, Madhya Pradesh",
+  "Ujjain, Madhya Pradesh","Khajuraho, Madhya Pradesh","Pachmarhi, Madhya Pradesh",
+  // West Bengal
+  "Kolkata, West Bengal","Siliguri, West Bengal","Durgapur, West Bengal","Darjeeling, West Bengal",
+  "Howrah, West Bengal","Asansol, West Bengal","Shantiniketan, West Bengal",
+  // Bihar & Jharkhand
+  "Patna, Bihar","Gaya, Bihar","Bodh Gaya, Bihar","Ranchi, Jharkhand","Jamshedpur, Jharkhand",
+  "Deoghar, Jharkhand",
+  // Odisha
+  "Bhubaneswar, Odisha","Cuttack, Odisha","Puri, Odisha","Rourkela, Odisha","Konark, Odisha",
+  // Goa
+  "Panaji, Goa","Margao, Goa","Vasco da Gama, Goa","Calangute, Goa","Baga, Goa",
+  // Punjab & Haryana
+  "Chandigarh, Punjab","Amritsar, Punjab","Ludhiana, Punjab","Jalandhar, Punjab",
+  "Patiala, Punjab","Karnal, Haryana","Ambala, Haryana","Panipat, Haryana","Hisar, Haryana",
+  // Himachal Pradesh
+  "Shimla, Himachal Pradesh","Manali, Himachal Pradesh","Dharamshala, Himachal Pradesh",
+  "Dalhousie, Himachal Pradesh","Kullu, Himachal Pradesh","Kasol, Himachal Pradesh",
+  "Spiti Valley, Himachal Pradesh",
+  // Uttarakhand
+  "Dehradun, Uttarakhand","Rishikesh, Uttarakhand","Haridwar, Uttarakhand","Mussoorie, Uttarakhand",
+  "Nainital, Uttarakhand","Jim Corbett, Uttarakhand","Badrinath, Uttarakhand","Kedarnath, Uttarakhand",
+  // Jammu & Kashmir
+  "Srinagar, Jammu & Kashmir","Jammu, Jammu & Kashmir","Gulmarg, Jammu & Kashmir",
+  "Pahalgam, Jammu & Kashmir","Leh, Ladakh","Ladakh, Ladakh",
+  // North East
+  "Guwahati, Assam","Shillong, Meghalaya","Gangtok, Sikkim","Imphal, Manipur",
+  "Aizawl, Mizoram","Agartala, Tripura","Itanagar, Arunachal Pradesh","Kohima, Nagaland",
+  "Kaziranga, Assam","Tawang, Arunachal Pradesh",
+  // Chhattisgarh
+  "Raipur, Chhattisgarh","Bhilai, Chhattisgarh","Bilaspur, Chhattisgarh"
+];
+
+function initCityAutocomplete() {
+  const inputs = document.querySelectorAll('[data-autocomplete="city"]');
+  if (!inputs.length) return;
+
+  // Inject CSS for dropdown
+  const style = document.createElement('style');
+  style.textContent = `
+    .city-ac-wrap { position: relative; }
+    .city-ac-list {
+      position: absolute; top: 100%; left: 0; right: 0; z-index: 999;
+      background: white; border: 1px solid var(--border); border-top: none;
+      border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+      max-height: 220px; overflow-y: auto; box-shadow: var(--shadow-md);
+      display: none;
+    }
+    .city-ac-list.open { display: block; }
+    .city-ac-item {
+      padding: 10px 14px; font-size: 14px; cursor: pointer;
+      display: flex; justify-content: space-between; align-items: center;
+      transition: background 0.15s;
+    }
+    .city-ac-item:hover, .city-ac-item.active { background: #fffef5; }
+    .city-ac-item .city-name { font-weight: 600; color: var(--dark); }
+    .city-ac-item .city-state { font-size: 11px; color: var(--muted); }
+    .city-ac-item .city-match { color: var(--accent-dark); font-weight: 700; }
+    .city-ac-list::-webkit-scrollbar { width: 6px; }
+    .city-ac-list::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+  `;
+  document.head.appendChild(style);
+
+  inputs.forEach(input => {
+    // Wrap input in a relative container
+    const wrapper = document.createElement('div');
+    wrapper.className = 'city-ac-wrap';
+    input.parentNode.insertBefore(wrapper, input);
+    wrapper.appendChild(input);
+
+    // Create dropdown
+    const dropdown = document.createElement('div');
+    dropdown.className = 'city-ac-list';
+    wrapper.appendChild(dropdown);
+
+    let activeIdx = -1;
+
+    function renderResults(query) {
+      if (!query || query.length < 2) { dropdown.classList.remove('open'); return; }
+      const q = query.toLowerCase();
+      const matches = INDIAN_CITIES.filter(c => c.toLowerCase().includes(q)).slice(0, 8);
+      if (!matches.length) { dropdown.classList.remove('open'); return; }
+
+      dropdown.innerHTML = matches.map((city, i) => {
+        const [name, state] = city.split(', ');
+        // Highlight matching text
+        const idx = name.toLowerCase().indexOf(q);
+        let display = name;
+        if (idx >= 0) {
+          display = name.slice(0, idx) + '<span class="city-match">' + name.slice(idx, idx + q.length) + '</span>' + name.slice(idx + q.length);
+        }
+        return `<div class="city-ac-item" data-value="${city}" data-index="${i}">
+          <span class="city-name">${display}</span>
+          <span class="city-state">${state || ''}</span>
+        </div>`;
+      }).join('');
+      activeIdx = -1;
+      dropdown.classList.add('open');
+    }
+
+    function selectItem(value) {
+      const city = value.split(', ')[0]; // Just the city name
+      input.value = city;
+      dropdown.classList.remove('open');
+      input.style.borderColor = '';
+    }
+
+    input.addEventListener('input', () => renderResults(input.value));
+    input.addEventListener('focus', () => { if (input.value.length >= 2) renderResults(input.value); });
+
+    dropdown.addEventListener('click', (e) => {
+      const item = e.target.closest('.city-ac-item');
+      if (item) selectItem(item.dataset.value);
+    });
+
+    input.addEventListener('keydown', (e) => {
+      const items = dropdown.querySelectorAll('.city-ac-item');
+      if (!items.length || !dropdown.classList.contains('open')) return;
+
+      if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        activeIdx = Math.min(activeIdx + 1, items.length - 1);
+        items.forEach((it, i) => it.classList.toggle('active', i === activeIdx));
+        items[activeIdx].scrollIntoView({ block: 'nearest' });
+      } else if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        activeIdx = Math.max(activeIdx - 1, 0);
+        items.forEach((it, i) => it.classList.toggle('active', i === activeIdx));
+        items[activeIdx].scrollIntoView({ block: 'nearest' });
+      } else if (e.key === 'Enter' && activeIdx >= 0) {
+        e.preventDefault();
+        selectItem(items[activeIdx].dataset.value);
+      } else if (e.key === 'Escape') {
+        dropdown.classList.remove('open');
+      }
+    });
+
+    // Close on outside click
+    document.addEventListener('click', (e) => {
+      if (!wrapper.contains(e.target)) dropdown.classList.remove('open');
+    });
+  });
+}
+initCityAutocomplete();
