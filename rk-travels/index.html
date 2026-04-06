@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TG Cabs – Explore India with Comfort & Trust</title>
+  <meta name="description"
+    content="TG Cabs offers premium car rentals, outstation trips, airport pickup, and tour packages across India. Book your journey with comfort and trust." />
+  <meta name="keywords"
+    content="TG Cabs, car rental India, outstation cab, airport pickup, tour packages India, travel agency" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"LocalBusiness","name":"TG Cabs","description":"Premium travel services across India – car rentals, tours, airport pickup, outstation trips","url":"https://tgcabs.in","telephone":"+91-9700853483","address":{"@type":"PostalAddress","addressLocality":"Hyderabad","addressRegion":"Telangana","addressCountry":"IN"}}
+  </script>
+</head>
+
+<body>
+
+  <!-- ═══════════ NAVBAR ═══════════ -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <div class="nav-logo-icon">TG</div>
+        <div class="nav-logo-text">
+          <div class="brand">TG Cabs</div>
+          <div class="tagline">Your Journey, Our Responsibility</div>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="packages.html">Packages</a></li>
+        <li><a href="fleet.html">Fleet</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="booking.html" class="nav-cta">Book Now</a></li>
+      </ul>
+      <div class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="services.html">Services</a>
+    <a href="packages.html">Tour Packages</a>
+    <a href="fleet.html">Our Fleet</a>
+    <a href="contact.html">Contact</a>
+    <a href="booking.html" class="nav-cta">📞 Book Now</a>
+  </div>
+
+  <!-- ═══════════ HERO ═══════════ -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-bg-img" style="background-image:url('images/hero.png')"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-left">
+        <div class="hero-badge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
+          </svg>
+          Trusted by 5000+ Happy Travellers
+        </div>
+        <h1 class="hero-title">
+          Explore India with<br />
+          <span class="highlight">Comfort & Trust</span>
+        </h1>
+        <p class="hero-subtitle">
+          From the mountains of Himachal to the backwaters of Kerala — TG Cabs takes you everywhere with safety,
+          comfort, and a smile. Your journey, our responsibility.
+        </p>
+        <div class="hero-actions">
+          <a href="booking.html" class="btn btn-primary btn-lg">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01" />
+            </svg>
+            Book Your Trip
+          </a>
+          <a href="packages.html" class="btn btn-outline btn-lg">
+            View Packages →
+          </a>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <div class="num count-up" data-target="5000" data-suffix="+">5000+</div>
+            <div class="label">Happy Customers</div>
+          </div>
+          <div class="hero-stat">
+            <div class="num count-up" data-target="12" data-suffix="+">12+</div>
+            <div class="label">Years Experience</div>
+          </div>
+          <div class="hero-stat">
+            <div class="num count-up" data-target="50" data-suffix="+">50+</div>
+            <div class="label">Cities Covered</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Inquiry Card -->
+      <div class="hero-card" data-aos="fade-left">
+        <div class="hero-card-title">📋 Quick Enquiry</div>
+        <div class="hero-card-sub">Get a free quote in under 2 minutes</div>
+        <form id="heroForm">
+          <div class="form-group">
+            <label>Your Name</label>
+            <input type="text" placeholder="Enter your name" required />
+          </div>
+          <div class="form-group">
+            <label>Mobile Number</label>
+            <input type="tel" placeholder="Enter your phone number" required />
+          </div>
+          <div class="form-group">
+            <label>Trip Type</label>
+            <select required>
+              <option value="">Select trip type</option>
+              <option>Local (Half/Full Day)</option>
+              <option>Outstation – One Way</option>
+              <option>Outstation – Round Trip</option>
+              <option>Airport Pickup / Drop</option>
+              <option>Tour Package</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>From</label>
+              <input type="text" placeholder="Mumbai" required />
+            </div>
+            <div class="form-group">
+              <label>To</label>
+              <input type="text" placeholder="Pune" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Travel Date</label>
+            <input type="date" required />
+          </div>
+          <button type="submit" class="form-submit">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path d="M22 2L11 13M22 2L15 22L11 13 2 9l20-7z" />
+            </svg>
+            Get Free Quote
+          </button>
+        </form>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <span>Scroll</span>
+      <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path d="M12 5v14M5 12l7 7 7-7" />
+      </svg>
+    </div>
+  </section>
+
+  <!-- ═══════════ SERVICES ═══════════ -->
+  <section class="section-pad">
+    <div class="container">
+      <div class="section-header text-center" data-aos="fade-up">
+        <div class="section-label">What We Offer</div>
+        <h2 class="section-title">Our <span>Premium</span> Travel Services</h2>
+        <p class="section-desc">From quick city rides to epic cross-country adventures, we've got the perfect ride for
+          every occasion.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card" data-aos="fade-up" data-aos-delay="0">
+          <div class="service-icon">
+            <svg width="30" height="30" fill="none" stroke="#1a56db" stroke-width="1.8" viewBox="0 0 24 24">
+              <rect x="1" y="3" width="15" height="13" rx="2" />
+              <path d="M16 8h4l3 5v3h-7V8z" />
+              <circle cx="5.5" cy="18.5" r="2.5" />
+              <circle cx="18.5" cy="18.5" r="2.5" />
+            </svg>
+          </div>
+          <h3>Local Car Rental</h3>
+          <p>Comfortable and affordable cars for local city use – half day or full day. Perfect for meetings, shopping,
+            or city exploration.</p>
+          <a href="services.html" class="service-link">Know More →</a>
+        </div>
+        <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="service-icon">
+            <svg width="30" height="30" fill="none" stroke="#1a56db" stroke-width="1.8" viewBox="0 0 24 24">
+              <path d="M3 12h18M3 12l4-4M3 12l4 4M21 12l-4-4M21 12l-4 4" />
+              <circle cx="12" cy="12" r="2" />
+            </svg>
+          </div>
+          <h3>Outstation Trips</h3>
+          <p>One-way or round-trip outstation travel with experienced drivers. Relax while we handle the long drive
+            safely.</p>
+          <a href="services.html" class="service-link">Know More →</a>
+        </div>
+        <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="service-icon">
+            <svg width="30" height="30" fill="none" stroke="#1a56db" stroke-width="1.8" viewBox="0 0 24 24">
+              <path
+                d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.64A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.15 6.15l1.28-1.28a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z" />
+            </svg>
+          </div>
+          <h3>Airport Transfers</h3>
+          <p>Punctual pick-up and drop to all major airports. We track your flight and ensure zero waiting time.</p>
+          <a href="services.html" class="service-link">Know More →</a>
+        </div>
+        <div class="service-card" data-aos="fade-up" data-aos-delay="0">
+          <div class="service-icon">
+            <svg width="30" height="30" fill="none" stroke="#1a56db" stroke-width="1.8" viewBox="0 0 24 24">
+              <path d="M17.5 19H9a7 7 0 117-7v1" />
+              <path d="M21.5 19L17.5 19M21.5 15L17.5 19L21.5 23" />
+            </svg>
+          </div>
+          <h3>Tour Packages</h3>
+          <p>Customized tour packages for Rajasthan, Kerala, Himachal, Goa and more. All-inclusive, hassle-free travel.
+          </p>
+          <a href="packages.html" class="service-link">View Packages →</a>
+        </div>
+        <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="service-icon">
+            <svg width="30" height="30" fill="none" stroke="#1a56db" stroke-width="1.8" viewBox="0 0 24 24">
+              <path d="M12 22s-8-4-8-12a8 8 0 1116 0c0 8-8 12-8 12z" />
+              <circle cx="12" cy="10" r="3" />
+            </svg>
+          </div>
+          <h3>Pilgrimage Tours</h3>
+          <p>Sacred journeys to Char Dham, Varanasi, Tirupati, Shirdi and more. Travel with devotion, comfort & care.
+          </p>
+          <a href="services.html" class="service-link">Know More →</a>
+        </div>
+        <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="service-icon">
+            <svg width="30" height="30" fill="none" stroke="#1a56db" stroke-width="1.8" viewBox="0 0 24 24">
+              <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
+              <circle cx="9" cy="7" r="4" />
+              <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" />
+            </svg>
+          </div>
+          <h3>Corporate Travel</h3>
+          <p>Reliable monthly/weekly car hire for corporates. Employee commute, client transfers, event logistics – all
+            covered.</p>
+          <a href="services.html" class="service-link">Know More →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ TRUST BAR ═══════════ -->
+  <div class="trust-bar">
+    <div class="container">
+      <div class="trust-grid">
+        <div class="trust-item" data-aos="zoom-in" data-aos-delay="0">
+          <div class="num count-up" data-target="5000" data-suffix="+">0+</div>
+          <div class="label">Happy Customers</div>
+        </div>
+        <div class="trust-item" data-aos="zoom-in" data-aos-delay="100">
+          <div class="num count-up" data-target="12" data-suffix=" Yrs">0 Yrs</div>
+          <div class="label">Years in Service</div>
+        </div>
+        <div class="trust-item" data-aos="zoom-in" data-aos-delay="200">
+          <div class="num count-up" data-target="50" data-suffix="+">0+</div>
+          <div class="label">Destinations Covered</div>
+        </div>
+        <div class="trust-item" data-aos="zoom-in" data-aos-delay="300">
+          <div class="num count-up" data-target="20" data-suffix="+">0+</div>
+          <div class="label">Vehicles in Fleet</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ POPULAR PACKAGES ═══════════ -->
+  <section class="section-pad">
+    <div class="container">
+      <div class="section-header text-center" data-aos="fade-up">
+        <div class="section-label">Explore India</div>
+        <h2 class="section-title">Our Popular <span>Tour Packages</span></h2>
+        <p class="section-desc">Handcrafted journeys across India's most breathtaking destinations. Every package built
+          for memories that last a lifetime.</p>
+      </div>
+      <div class="packages-grid">
+        <!-- 1. Srisailam -->
+        <div class="package-card" data-category="pilgrimage" data-aos="fade-up">
+          <div class="package-img"><img src="images/srisailam.png" alt="Srisailam Tour"
+              style="height:220px;object-fit:cover;width:100%" />
+            <div class="package-badge">🙏 Top Pick</div>
+          </div>
+          <div class="package-body">
+            <div class="package-meta"><span>📅 1-2 Days</span><span>👥 2–12 Pax</span><span>🌟 4.9/5</span></div>
+            <h3>Srisailam Tour</h3>
+            <p>Visit the sacred Mallikarjuna Swamy Jyotirlinga, scenic Srisailam Dam, and Pathala Ganga on this serene
+              pilgrimage.</p>
+            <div class="package-highlights"><span>🛕 Jyotirlinga</span><span>🌊 Dam View</span><span>⛵
+                Boating</span><span>🚗 AC Cab</span></div>
+            <div class="package-footer">
+              <div class="package-price" style="font-size:16px">Custom <span>Price</span></div><a href="booking.html"
+                class="btn btn-secondary btn-sm" style="background:#4ade80;color:white;border:none">Book a cab</a>
+            </div>
+          </div>
+        </div>
+        <!-- 2. Statue of Equality -->
+        <div class="package-card" data-category="local" data-aos="fade-up" data-aos-delay="100">
+          <div class="package-img"><img src="images/statue.png" alt="Statue of Equality"
+              style="height:220px;object-fit:cover;width:100%" />
+            <div class="package-badge">✨ Spiritual</div>
+          </div>
+          <div class="package-body">
+            <div class="package-meta"><span>📅 1 Day</span><span>👥 4–28 Pax</span><span>🌟 4.9/5</span></div>
+            <h3 style="font-size:18px">Statue of Equality Tour</h3>
+            <p style="font-size:14px">Statue of Equality, Chilukuri Balaji Temple, Puri Jagannath Temple, and Peddamma
+              Thalli Temple guided day tour.</p>
+            <div class="package-highlights"><span>🚙 4-28 Seater</span><span>🛣 Tolls & Parking</span><span>👨‍✈️ Driver
+                Batta</span><span>🛕 4 Temples</span></div>
+            <div class="package-footer">
+              <div class="package-price" style="font-size:16px">Custom <span>Price</span></div><a href="booking.html"
+                class="btn btn-secondary btn-sm" style="background:#4ade80;color:white;border:none">Book a cab</a>
+            </div>
+          </div>
+        </div>
+        <!-- 3. Charminar -->
+        <div class="package-card" data-category="local" data-aos="fade-up" data-aos-delay="200">
+          <div class="package-img"><img src="images/charminar.png" alt="Charminar Tour"
+              style="height:220px;object-fit:cover;width:100%" />
+            <div class="package-badge">🌆 Heritage</div>
+          </div>
+          <div class="package-body">
+            <div class="package-meta"><span>📅 1 Day</span><span>👥 2–12 Pax</span><span>🌟 4.8/5</span></div>
+            <h3>Charminar & Old City</h3>
+            <p>Explore the iconic Charminar, Mecca Masjid, Laad Bazaar and experience the vibrant markets and authentic
+              food.</p>
+            <div class="package-highlights"><span>🏰 Charminar</span><span>🛍️ Shopping</span><span>🍲 Food
+                Walk</span><span>🚗 AC Cab</span></div>
+            <div class="package-footer">
+              <div class="package-price" style="font-size:16px">Custom <span>Price</span></div><a href="booking.html"
+                class="btn btn-secondary btn-sm" style="background:#4ade80;color:white;border:none">Book a cab</a>
+            </div>
+          </div>
+        </div>
+        <!-- 4. Yadgirigutta + Swarnagiri -->
+        <div class="package-card" data-category="pilgrimage" data-aos="fade-up">
+          <div class="package-img"><img src="images/yadgirigutta.png" alt="Yadgirigutta Tour"
+              style="height:220px;object-fit:cover;width:100%" />
+            <div class="package-badge">🙏 Pilgrimage</div>
+          </div>
+          <div class="package-body">
+            <div class="package-meta"><span>📅 1 Day</span><span>👥 4–28 Pax</span><span>🌟 4.9/5</span></div>
+            <h3>Yadgirigutta & Swarnagiri</h3>
+            <p>Divine day trip to the beautifully renovated Yadadri Lakshmi Narasimha Swamy Temple and the serene
+              Swarnagiri Jain Temple.</p>
+            <div class="package-highlights"><span>🛕 Yadadri Temple</span><span>✨ Swarnagiri</span><span>👨‍✈️ Driver
+                Batta</span><span>🚙 4-28 Seater</span></div>
+            <div class="package-footer">
+              <div class="package-price" style="font-size:16px">Custom <span>Price</span></div><a href="booking.html"
+                class="btn btn-secondary btn-sm" style="background:#4ade80;color:white;border:none">Book a cab</a>
+            </div>
+          </div>
+        </div>
+        <!-- 5. Vargal (Saraswathi Temple) -->
+        <div class="package-card" data-category="pilgrimage" data-aos="fade-up" data-aos-delay="100">
+          <div class="package-img"><img src="images/vargal.png" alt="Vargal Tour"
+              style="height:220px;object-fit:cover;width:100%" />
+            <div class="package-badge">🙏 Pilgrimage</div>
+          </div>
+          <div class="package-body">
+            <div class="package-meta"><span>📅 1 Day</span><span>👥 4–28 Pax</span><span>🌟 4.8/5</span></div>
+            <h3>Vargal Saraswathi Temple</h3>
+            <p>Seek blessings at the famous Sri Vidya Saraswathi temple at Vargal, a perfect day trip for families and
+              students.</p>
+            <div class="package-highlights"><span>🛕 Saraswathi Temple</span><span>✨ Aksharabhyasam</span><span>👨‍✈️
+                Driver Batta</span><span>🚙 4-28 Seater</span></div>
+            <div class="package-footer">
+              <div class="package-price" style="font-size:16px">Custom <span>Price</span></div><a href="booking.html"
+                class="btn btn-secondary btn-sm" style="background:#4ade80;color:white;border:none">Book a cab</a>
+            </div>
+          </div>
+        </div>
+        <!-- 6. Ramoji film city -->
+        <div class="package-card" data-category="local" data-aos="fade-up" data-aos-delay="200">
+          <div class="package-img"><img src="images/ramoji.png" alt="Ramoji Focus"
+              style="height:220px;object-fit:cover;width:100%" />
+            <div class="package-badge">🎬 Movie Set</div>
+          </div>
+          <div class="package-body">
+            <div class="package-meta"><span>📅 1 Day</span><span>👥 4–28 Pax</span><span>🌟 4.8/5</span></div>
+            <h3 style="font-size:18px">Ramoji Film City + Temple</h3>
+            <p style="font-size:14px">Day tour package covering the massive Ramoji Film City and the peaceful Sanghi
+              Temple on the way back.</p>
+            <div class="package-highlights"><span>🚙 4-28 Seater</span><span>🛣 Tolls & Parking</span><span>👨‍✈️ Driver
+                Batta</span><span>🎫 Day Tour</span></div>
+            <div class="package-footer">
+              <div class="package-price" style="font-size:16px">Custom <span>Price</span></div><a href="booking.html"
+                class="btn btn-secondary btn-sm" style="background:#4ade80;color:white;border:none">Book a cab</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="text-center" style="margin-top:40px">
+        <a href="packages.html" class="btn btn-secondary">View All Packages →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ WHY CHOOSE US ═══════════ -->
+  <section class="section-pad why-section">
+    <div class="container">
+      <div class="why-grid">
+        <div class="why-image" data-aos="fade-right">
+          <img src="images/innova.png" alt="TG Cabs Premium Vehicle" />
+          <div class="why-image-badge">
+            ⭐ 4.9/5 Rating<br />
+            <small style="font-weight:400;font-size:12px">2000+ Google Reviews</small>
+          </div>
+        </div>
+        <div data-aos="fade-left">
+          <div class="section-label">Why Choose TG Cabs?</div>
+          <h2 class="section-title">Your <span>Safety & Comfort</span> is Our Top Priority</h2>
+          <div class="why-list">
+            <div class="why-item">
+              <div class="why-item-icon">
+                <svg width="22" height="22" fill="none" stroke="#f59e0b" stroke-width="2" viewBox="0 0 24 24">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                </svg>
+              </div>
+              <div>
+                <h4>Safe & Verified Drivers</h4>
+                <p>All our drivers are police-verified, licensed, and trained in safe driving practices. Your safety is
+                  non-negotiable.</p>
+              </div>
+            </div>
+            <div class="why-item">
+              <div class="why-item-icon">
+                <svg width="22" height="22" fill="none" stroke="#f59e0b" stroke-width="2" viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="10" />
+                  <path d="M12 6v6l4 2" />
+                </svg>
+              </div>
+              <div>
+                <h4>24/7 Customer Support</h4>
+                <p>Need help at midnight or at dawn? Our support team is always just a call or WhatsApp message away.
+                </p>
+              </div>
+            </div>
+            <div class="why-item">
+              <div class="why-item-icon">
+                <svg width="22" height="22" fill="none" stroke="#f59e0b" stroke-width="2" viewBox="0 0 24 24">
+                  <line x1="12" y1="1" x2="12" y2="23" />
+                  <path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6" />
+                </svg>
+              </div>
+              <div>
+                <h4>Transparent Pricing</h4>
+                <p>No hidden charges, no surprises. What we quote is what you pay. We believe in honest, upfront
+                  pricing.</p>
+              </div>
+            </div>
+            <div class="why-item">
+              <div class="why-item-icon">
+                <svg width="22" height="22" fill="none" stroke="#f59e0b" stroke-width="2" viewBox="0 0 24 24">
+                  <path
+                    d="M14.5 10c-.83 0-1.5-.67-1.5-1.5v-5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5z" />
+                  <path d="M20.5 10H19V8.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z" />
+                  <path
+                    d="M9.5 14c.83 0 1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5S8 21.33 8 20.5v-5c0-.83.67-1.5 1.5-1.5z" />
+                  <path d="M3.5 14H5v1.5c0 .83-.67 1.5-1.5 1.5S2 16.33 2 15.5 2.67 14 3.5 14z" />
+                  <path
+                    d="M14 14.5c0-.83.67-1.5 1.5-1.5h5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5h-5c-.83 0-1.5-.67-1.5-1.5z" />
+                  <path d="M15.5 19H14v1.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5-.67-1.5-1.5-1.5z" />
+                  <path
+                    d="M10 9.5C10 8.67 9.33 8 8.5 8h-5C2.67 8 2 8.67 2 9.5S2.67 11 3.5 11h5c.83 0 1.5-.67 1.5-1.5z" />
+                  <path d="M8.5 5H10V3.5C10 2.67 9.33 2 8.5 2S7 2.67 7 3.5 7.67 5 8.5 5z" />
+                </svg>
+              </div>
+              <div>
+                <h4>Well-Maintained Fleet</h4>
+                <p>Our fleet is regularly serviced and inspected. Clean, comfortable, and equipped with AC for your
+                  pleasant journey.</p>
+              </div>
+            </div>
+          </div>
+          <a href="about.html" style="display:inline-block;margin-top:32px" class="btn btn-primary">Learn Our Story
+            →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ TESTIMONIALS ═══════════ -->
+  <section class="section-pad testimonials-section">
+    <div class="container">
+      <div class="section-header text-center" data-aos="fade-up">
+        <div class="section-label">Customer Stories</div>
+        <h2 class="section-title">What Our <span>Travellers Say</span></h2>
+        <p class="section-desc">Real experiences from real customers. Their happiness is our greatest achievement.</p>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card" data-aos="fade-up" data-aos-delay="0">
+          <div class="testimonial-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+          <p class="testimonial-text">"We booked TG Cabs for our Shimla–Manali trip and it was absolutely wonderful.
+            The driver was professional, the car was spotless, and they handled every road condition expertly. Highly
+            recommended!"</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">R</div>
+            <div>
+              <div class="name">Ramesh Sharma</div>
+              <div class="city">Mumbai, Maharashtra</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="testimonial-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+          <p class="testimonial-text">"Airport pickup was smooth and on time at 3 AM! The driver was waiting with a name
+            board. Very punctual and the car was very clean and comfortable. Will definitely use TG Cabs again."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">P</div>
+            <div>
+              <div class="name">Priya Nair</div>
+              <div class="city">Kochi, Kerala</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="testimonial-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+          <p class="testimonial-text">"Best Rajasthan tour we ever had! Great package, amazing hotels, knowledgeable
+            Innova driver who doubled as a guide. The price was very fair. Our whole family loved every moment!"</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">A</div>
+            <div>
+              <div class="name">Anita Gupta</div>
+              <div class="city">Delhi, NCR</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="text-center" style="margin-top:14px;color:var(--muted);font-size:14px">
+        <a href="https://g.page/r/tgcabs" target="_blank" rel="noopener" style="color:var(--primary);font-weight:600">★
+          4.9/5 on Google – Read all 2000+ reviews →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ CTA BANNER ═══════════ -->
+  <section class="cta-banner">
+    <div class="container">
+      <h2 data-aos="fade-up">Ready to Start Your Adventure?</h2>
+      <p data-aos="fade-up" data-aos-delay="100">Book now and get a FREE driver's contact 24 hours before your trip.</p>
+      <div class="cta-actions" data-aos="fade-up" data-aos-delay="200">
+        <a href="booking.html" class="btn btn-primary btn-lg">
+          📋 Make a Booking
+        </a>
+        <a href="https://wa.me/919700853483?text=Hi%20RK%20Travels%2C%20I%20want%20to%20book%20a%20trip!"
+          target="_blank" class="btn btn-outline btn-lg" style="color:white;border-color:rgba(255,255,255,0.4)">
+          💬 Chat on WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ FOOTER ═══════════ -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a href="index.html" class="nav-logo" style="margin-bottom:16px;display:inline-flex">
+              <div class="nav-logo-icon">TG</div>
+              <div class="nav-logo-text">
+                <div class="brand" style="color:white">TG Cabs</div>
+                <div class="tagline">Your Journey, Our Responsibility</div>
+              </div>
+            </a>
+            <p>Trusted travel partner for thousands of families across India since 2012. Safe, comfortable, and reliable
+              journeys — every single time.</p>
+            <div class="footer-social">
+              <a href="#" aria-label="Facebook" title="Facebook">📘</a>
+              <a href="#" aria-label="Instagram" title="Instagram">📸</a>
+              <a href="#" aria-label="YouTube" title="YouTube">▶️</a>
+              <a href="https://wa.me/919700853483" aria-label="WhatsApp" title="WhatsApp">💬</a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="services.html">Services</a></li>
+              <li><a href="packages.html">Tour Packages</a></li>
+              <li><a href="fleet.html">Our Fleet</a></li>
+              <li><a href="booking.html">Book Now</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Our Services</h4>
+            <ul>
+              <li><a href="services.html">Local Car Rental</a></li>
+              <li><a href="services.html">Outstation Cabs</a></li>
+              <li><a href="services.html">Airport Transfers</a></li>
+              <li><a href="services.html">Pilgrimage Tours</a></li>
+              <li><a href="services.html">Corporate Travel</a></li>
+              <li><a href="packages.html">Holiday Packages</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Contact Us</h4>
+            <div class="footer-contact-item">
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path
+                  d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.64A2 2 0 012 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.15 6.15l1.28-1.28a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z" />
+              </svg>
+            </div>
+            <div class="footer-contact-item">
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                <polyline points="22,6 12,13 2,6" />
+              </svg>
+              <p>info@tgcabs.in<br />booking@tgcabs.in</p>
+            </div>
+            <div class="footer-contact-item">
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+                <circle cx="12" cy="10" r="3" />
+              </svg>
+              <p>Owner: Rajinikaanth Mukkidi,<br />Hyderabad, Telangana</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr class="footer-divider" />
+    <div class="footer-bottom">
+      <div class="container"
+        style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;width:100%">
+        <p>© 2025 TG Cabs. All Rights Reserved. Made with ❤️ in India.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ═══════════ FLOATING WHATSAPP ═══════════ -->
+  <a href="https://wa.me/919700853483?text=Hi%20RK%20Travels%2C%20I%20want%20to%20book%20a%20trip!" target="_blank"
+    class="whatsapp-float" title="Chat on WhatsApp" aria-label="WhatsApp" id="whatsappBtn">
+    💬
+  </a>
+
+  <script src="js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Book Your Trip – TG Cabs | Instant Booking Enquiry</title>
+  <meta name="description" content="Book your trip with TG Cabs. Fill out our quick booking form for local, outstation, airport, or tour package — get a confirmed quote within minutes."/>
+  <link rel="stylesheet" href="css/style.css"/>
+  <style>
+    .booking-section { padding: 80px 0 100px; }
+    .booking-note { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: var(--radius-sm); padding: 14px 18px; font-size: 13px; color: var(--primary); margin-bottom: 28px; display: flex; gap: 10px; align-items: flex-start; }
+    .step-connector { width: 40px; height: 2px; background: var(--border); margin: 0 6px; flex-shrink: 0; align-self: center; }
+    .booking-benefits { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 14px; margin-bottom: 40px; }
+    .booking-benefit { text-align: center; padding: 18px; background: var(--light); border: 1px solid var(--border); border-radius: var(--radius-sm); }
+    .booking-benefit .icon { font-size: 24px; margin-bottom: 8px; }
+    .booking-benefit p { font-size: 12px; color: var(--muted); font-weight: 500; }
+  </style>
+</head>
+<body>
+<nav class="navbar scrolled" id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><div class="nav-logo-icon">TG</div><div class="nav-logo-text"><div class="brand">TG Cabs</div><div class="tagline">Your Journey, Our Responsibility</div></div></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li>
+      <li><a href="packages.html">Packages</a></li><li><a href="fleet.html">Fleet</a></li>
+      <li><a href="contact.html">Contact</a></li><li><a href="booking.html" class="nav-cta active">Book Now</a></li>
+    </ul>
+    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Home</a><a href="about.html">About Us</a><a href="services.html">Services</a>
+  <a href="packages.html">Tour Packages</a><a href="fleet.html">Our Fleet</a><a href="contact.html">Contact</a>
+  <a href="booking.html" class="nav-cta">📞 Book Now</a>
+</div>
+
+<section class="page-hero">
+  <div class="page-hero-content container">
+    <div class="breadcrumb"><a href="index.html">Home</a> › <span>Book Your Trip</span></div>
+    <h1>Book Your Journey</h1>
+    <p>Fill in your details below and our team will confirm your booking with the best price — within minutes!</p>
+  </div>
+</section>
+
+<section class="booking-section">
+  <div class="container">
+    <!-- Benefits Strip -->
+    <div class="booking-benefits" data-aos="fade-up">
+      <div class="booking-benefit"><div class="icon">⚡</div><p>Instant Confirmation</p></div>
+      <div class="booking-benefit"><div class="icon">💰</div><p>Best Price Guarantee</p></div>
+      <div class="booking-benefit"><div class="icon">🚫</div><p>Free Cancellation</p></div>
+      <div class="booking-benefit"><div class="icon">🛡️</div><p>Safe & Verified</p></div>
+      <div class="booking-benefit"><div class="icon">📞</div><p>24/7 Support</p></div>
+    </div>
+
+    <div class="booking-form-card" data-aos="fade-up">
+      <div class="booking-note">
+        ℹ️ <span>This is a booking enquiry form. After submission, our team will call/WhatsApp you within 30 minutes to confirm your trip details and pricing.</span>
+      </div>
+
+      <!-- Steps Indicator -->
+      <div class="booking-steps">
+        <div class="step active">
+          <div class="step-circle">1</div>
+          <div class="step-label">Trip Details</div>
+        </div>
+        <div class="step-connector"></div>
+        <div class="step">
+          <div class="step-circle">2</div>
+          <div class="step-label">Traveller Info</div>
+        </div>
+        <div class="step-connector"></div>
+        <div class="step">
+          <div class="step-circle">3</div>
+          <div class="step-label">Confirm</div>
+        </div>
+      </div>
+
+      <form id="bookingForm">
+        <!-- SECTION 1: Trip Type -->
+        <h4 style="font-size:16px;font-weight:700;margin-bottom:18px;color:var(--dark)">Step 1 — Select Trip Type</h4>
+        <div class="trip-type-grid">
+          <div class="trip-type-btn selected" data-type="local">
+            <span class="icon">🏙️</span>
+            <span class="label">Local / City</span>
+          </div>
+          <div class="trip-type-btn" data-type="outstation">
+            <span class="icon">🛣️</span>
+            <span class="label">Outstation</span>
+          </div>
+          <div class="trip-type-btn" data-type="airport">
+            <span class="icon">✈️</span>
+            <span class="label">Airport Transfer</span>
+          </div>
+          <div class="trip-type-btn" data-type="tour">
+            <span class="icon">🗺️</span>
+            <span class="label">Tour Package</span>
+          </div>
+          <div class="trip-type-btn" data-type="pilgrimage">
+            <span class="icon">🛕</span>
+            <span class="label">Pilgrimage</span>
+          </div>
+          <div class="trip-type-btn" data-type="corporate">
+            <span class="icon">💼</span>
+            <span class="label">Corporate</span>
+          </div>
+        </div>
+
+        <hr style="margin:28px 0;border:none;border-top:1px solid var(--border)"/>
+
+        <!-- SECTION 2: Journey Details -->
+        <h4 style="font-size:16px;font-weight:700;margin-bottom:18px;color:var(--dark)">Step 2 — Journey Details</h4>
+        <div class="form-row">
+          <div class="form-group"><label>Pickup City / Location</label><input type="text" placeholder="e.g. Mumbai – Dadar" required/></div>
+          <div class="form-group"><label>Drop Location / Destination</label><input type="text" placeholder="e.g. Pune / Goa / Manali" required/></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Travel Date</label><input type="date" required/></div>
+          <div class="form-group"><label>Return Date (if applicable)</label><input type="date"/></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Number of Passengers</label>
+            <select required>
+              <option value="">Select passengers</option>
+              <option>1 Person</option><option>2 Persons</option><option>3 Persons</option>
+              <option>4 Persons</option><option>5–7 Persons</option><option>8–12 Persons</option>
+              <option>13–20 Persons</option><option>20+ Persons</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Preferred Vehicle</label>
+            <select>
+              <option value="">Any (we'll suggest best)</option>
+              <option>Sedan (Dzire / Amaze)</option><option>SUV (Innova Crysta)</option>
+              <option>MPV (Ertiga / Kia)</option><option>Tempo Traveller (12 Seater)</option>
+              <option>Mini Bus (20–32 Seater)</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Special Requirements / Notes</label>
+          <textarea rows="3" placeholder="E.g. Need child seat, have heavy luggage, want music system, need hotel recommendations..."></textarea>
+        </div>
+
+        <hr style="margin:28px 0;border:none;border-top:1px solid var(--border)"/>
+
+        <!-- SECTION 3: Personal Details -->
+        <h4 style="font-size:16px;font-weight:700;margin-bottom:18px;color:var(--dark)">Step 3 — Your Details</h4>
+        <div class="form-row">
+          <div class="form-group"><label>Full Name</label><input type="text" placeholder="Ramesh Kumar" required/></div>
+          <div class="form-group"><label>WhatsApp / Mobile Number</label><input type="tel" placeholder="+91 97008 53483" required/></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Email (Optional)</label><input type="email" placeholder="you@email.com"/></div>
+          <div class="form-group">
+            <label>How Did You Hear About Us?</label>
+            <select>
+              <option value="">Select</option>
+              <option>Google Search</option><option>Friend / Family Referral</option>
+              <option>Instagram</option><option>Facebook</option><option>WhatsApp Forward</option><option>Other</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Terms -->
+        <div style="display:flex;align-items:flex-start;gap:10px;margin:20px 0;font-size:13px;color:var(--muted)">
+          <input type="checkbox" id="terms" style="margin-top:2px;flex-shrink:0" required/>
+          <label for="terms">I agree that TG Cabs may contact me via phone/WhatsApp regarding my booking. I understand this is an enquiry and final pricing will be confirmed by the team.</label>
+        </div>
+
+        <button type="submit" class="form-submit booking-form-btn" style="max-width:400px;margin:0 auto">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M22 2L11 13M22 2L15 22L11 13 2 9l20-7z"/></svg>
+          Submit Booking Enquiry
+        </button>
+
+        <p style="text-align:center;font-size:12px;color:var(--muted);margin-top:18px">
+          🔒 Your information is safe. We never share your data with third parties.<br/>
+          After submission, expect a call/WhatsApp within <strong>30 minutes</strong>.
+        </p>
+      </form>
+    </div>
+
+    <!-- Alternate Contact -->
+    <div style="margin-top:60px;text-align:center" data-aos="fade-up">
+      <p style="font-size:17px;color:var(--muted);margin-bottom:24px">Prefer to book directly? We're available right now!</p>
+      <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
+        <a href="tel:+919700853483" class="btn btn-secondary btn-lg">📞 Call +91 97008 53483</a>
+        <a href="https://wa.me/919700853483?text=Hi%20RK%20Travels%2C%20I%20want%20to%20book%20a%20trip!" target="_blank" class="btn btn-lg" style="background:#25d366;color:white;border:none">💬 WhatsApp Us Now</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-top"><div class="container"><div class="footer-grid">
+    <div class="footer-brand"><a href="index.html" class="nav-logo" style="margin-bottom:16px;display:inline-flex"><div class="nav-logo-icon">TG</div><div class="nav-logo-text"><div class="brand" style="color:white">TG Cabs</div><div class="tagline">Your Journey, Our Responsibility</div></div></a><p>Trusted travel partner across India since 2012. Safe, comfortable, reliable.</p><div class="footer-social"><a href="#" title="Facebook">📘</a><a href="#" title="Instagram">📸</a><a href="https://wa.me/919700853483" title="WhatsApp">💬</a></div></div>
+    <div class="footer-col"><h4>Quick Links</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About Us</a></li><li><a href="services.html">Services</a></li><li><a href="packages.html">Packages</a></li><li><a href="fleet.html">Fleet</a></li><li><a href="booking.html">Book Now</a></li></ul></div>
+    <div class="footer-col"><h4>Services</h4><ul><li><a href="services.html">Local Car Rental</a></li><li><a href="services.html">Outstation Cabs</a></li><li><a href="services.html">Airport Transfers</a></li><li><a href="services.html">Pilgrimage Tours</a></li><li><a href="services.html">Corporate Travel</a></li></ul></div>
+    <div class="footer-col"><h4>Contact</h4><div class="footer-contact-item"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.64A2 2 0 012 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.15 6.15l1.28-1.28a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z"/></svg><p>+91 97008 53483</p></div><div class="footer-contact-item"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><p>info@tgcabs.in</p></div></div>
+  </div></div></div>
+  <hr class="footer-divider"/>
+  <div class="footer-bottom"><div class="container" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;width:100%"><p>© 2025 TG Cabs. All Rights Reserved.</p><div class="footer-bottom-links"><a href="#">Privacy Policy</a><a href="#">Terms</a></div></div></div>
+</footer>
+<a href="https://wa.me/919700853483?text=Hi%20RK%20Travels!" target="_blank" class="whatsapp-float" id="whatsappBtn">💬</a>
+<script src="js/main.js"></script>
+</body>
+</html>
