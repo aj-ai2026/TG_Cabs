@@ -1994,6 +1994,11 @@ button {
 }
 
 @media (max-width: 768px) {
+  .nav-logo-img {
+    height: 48px;
+    margin-left: 0; /* Reset custom desktop margin on mobile to avoid overflow */
+  }
+
   .section-pad {
     padding: 70px 0;
   }
