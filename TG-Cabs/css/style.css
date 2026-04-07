@@ -411,7 +411,7 @@ button {
 /* ── Hero ── */
 .hero {
   position: relative;
-  min-height: 100vh;
+  min-height: 50vh; /* Reduced from 100vh to half height */
   display: flex;
   align-items: center;
   overflow: hidden;
@@ -452,7 +452,7 @@ button {
   grid-template-columns: 1fr 420px;
   gap: 60px;
   align-items: center;
-  min-height: 100vh;
+  min-height: 50vh; /* Also reduced to half height here */
 }
 
 .hero-badge {
@@ -524,7 +524,7 @@ button {
 .hero-card {
   background: rgba(255, 255, 255, 0.97);
   border-radius: var(--radius-lg);
-  padding: 36px;
+  padding: 24px; /* Reduced padding from 36px */
   box-shadow: var(--shadow-xl);
   color: var(--dark);
   backdrop-filter: blur(10px);
@@ -544,7 +544,7 @@ button {
 }
 
 .form-group {
-  margin-bottom: 16px;
+  margin-bottom: 12px; /* Reduced from 16px */
 }
 
 .form-group label {
@@ -561,7 +561,7 @@ button {
 .form-group select,
 .form-group textarea {
   width: 100%;
-  padding: 13px 16px;
+  padding: 10px 14px; /* Reduced from 13px 16px */
   border: 1.5px solid var(--border);
   border-radius: var(--radius-sm);
   font-size: 14px;
