@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Logo Animation</title>
+  <style>
+    body {
+      background: #111111;
+      /* Dark background to contrast yellow */
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      font-family: sans-serif;
+    }
+
+    .scene {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .wordmark {
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
+
+    .letter {
+      height: 140px;
+      object-fit: contain;
+      opacity: 0;
+      transform: translateY(40px);
+      animation: fadeUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+    }
+
+    /* Letters sequence */
+    .letter-t {
+      animation-delay: 0.2s;
+      z-index: 3;
+    }
+
+    .letter-g {
+      animation-delay: 0.4s;
+      margin-left: -35px;
+      z-index: 2;
+    }
+
+    .c-wrapper {
+      position: relative;
+      animation-delay: 0.6s;
+    }
+
+    .letter-c {
+      animation-delay: 0.6s;
+      margin-left: -6px;
+      z-index: 1;
+    }
+
+    .car-wrapper {
+      position: absolute;
+      top: 50%;
+      left: -150px;
+      /* Start outside the left edge of C */
+      transform: translateY(-50%);
+      z-index: 10;
+      opacity: 0;
+      animation: carShoot 1s cubic-bezier(0.25, 1, 0.5, 1) 1.2s forwards;
+    }
+
+    .car {
+      height: 150px;
+      object-fit: contain;
+      display: block;
+    }
+
+    /* Smoke particles */
+    .smoke-container {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      z-index: 1;
+    }
+
+    .smoke {
+      position: absolute;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 50%;
+      filter: blur(6px);
+      opacity: 0;
+      transform-origin: center;
+    }
+
+    /* Trailing puffs */
+    .s1 {
+      width: 30px;
+      height: 30px;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+      animation: puff 1.3s cubic-bezier(0.1, 0.8, 0.3, 1) 1.3s forwards;
+    }
+
+    .s2 {
+      width: 45px;
+      height: 45px;
+      box-shadow: 0 0 30px rgba(255, 255, 255, 0.7);
+      animation: puffUp 1.5s cubic-bezier(0.1, 0.8, 0.3, 1) 1.4s forwards;
+      margin-top: -15px;
+      margin-left: -20px;
+    }
+
+    .s3 {
+      width: 25px;
+      height: 25px;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.9);
+      animation: puffDown 1.1s cubic-bezier(0.1, 0.8, 0.3, 1) 1.35s forwards;
+      margin-top: 15px;
+      margin-left: -10px;
+    }
+
+    /* Additional faint dust */
+    .s4 {
+      width: 60px;
+      height: 60px;
+      background: rgba(255, 200, 50, 0.2);
+      filter: blur(12px);
+      animation: puffWide 1.6s ease-out 1.4s forwards;
+    }
+
+    @keyframes fadeUp {
+      0% {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes carShoot {
+      0% {
+        opacity: 0;
+        transform: translate(-300px, -50%);
+      }
+
+      20% {
+        opacity: 1;
+      }
+
+      100% {
+        opacity: 1;
+        transform: translate(200px, -50%);
+      }
+
+      /* Lands inside the C */
+    }
+
+    @keyframes puff {
+      0% {
+        opacity: 0.9;
+        transform: translate(0, 0) scale(0.5);
+      }
+
+      100% {
+        opacity: 0;
+        transform: translate(-120px, -10px) scale(3);
+      }
+    }
+
+    @keyframes puffUp {
+      0% {
+        opacity: 0.8;
+        transform: translate(0, 0) scale(0.5);
+      }
+
+      100% {
+        opacity: 0;
+        transform: translate(-150px, -40px) scale(3.5);
+      }
+    }
+
+    @keyframes puffDown {
+      0% {
+        opacity: 0.9;
+        transform: translate(0, 0) scale(0.5);
+      }
+
+      100% {
+        opacity: 0;
+        transform: translate(-100px, 30px) scale(2.5);
+      }
+    }
+
+    @keyframes puffWide {
+      0% {
+        opacity: 0.6;
+        transform: translate(0, 0) scale(0.8);
+      }
+
+      100% {
+        opacity: 0;
+        transform: translate(-180px, 0) scale(4);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="scene">
+    <div class="wordmark">
+      <img src="images/logo_t.png" class="letter letter-t" alt="T">
+      <img src="images/logo_g.png" class="letter letter-g" alt="G">
+
+      <div class="c-wrapper">
+        <img src="images/logo_c.png" class="letter letter-c" alt="C">
+
+        <div class="smoke-container">
+          <div class="smoke s4"></div>
+          <div class="smoke s1"></div>
+          <div class="smoke s2"></div>
+          <div class="smoke s3"></div>
+        </div>
+
+        <div class="car-wrapper">
+          <img src="images/logo_car.png" class="car" alt="Car">
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    // Optional: reload animation on click to test it easily
+    document.body.addEventListener('click', () => {
+      location.reload();
+    });
+  </script>
+</body>
+
+</html>
