@@ -144,7 +144,7 @@ function showToast(message) {
 }
 
 document.querySelectorAll('form').forEach(form => {
-  form.addEventListener('submit', function(e) {
+  form.addEventListener('submit', function (e) {
     e.preventDefault();
     const inputs = form.querySelectorAll('input[required], select[required], textarea[required]');
     let valid = true;
@@ -214,7 +214,7 @@ if (testimonialTrack && testimonialControls) {
   const cards = testimonialTrack.querySelectorAll('.testimonial-card');
   const cardWidth = cards[0].offsetWidth + 24; // width + gap
   let currentIndex = 0;
-  
+
   // Create dots
   cards.forEach((_, index) => {
     const dot = document.createElement('div');
@@ -248,7 +248,7 @@ if (waBubble) {
   setTimeout(() => {
     waBubble.classList.add('show');
   }, 3000);
-  
+
   if (waBtn) {
     waBtn.addEventListener('click', () => {
       waBubble.classList.remove('show');
@@ -258,7 +258,7 @@ if (waBubble) {
 
 /* ── Smooth scroll for anchor links ── */
 document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', function(e) {
+  a.addEventListener('click', function (e) {
     const target = document.querySelector(this.getAttribute('href'));
     if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
   });
@@ -267,89 +267,89 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 /* ── City Autocomplete for From/To fields ── */
 const INDIAN_CITIES = [
   // Telangana
-  "Hyderabad, Telangana","Warangal, Telangana","Nizamabad, Telangana","Karimnagar, Telangana",
-  "Khammam, Telangana","Mahbubnagar, Telangana","Nalgonda, Telangana","Siddipet, Telangana",
-  "Adilabad, Telangana","Suryapet, Telangana","Mancherial, Telangana","Ramagundam, Telangana",
-  "Miryalaguda, Telangana","Jagtial, Telangana","Bodhan, Telangana","Kamareddy, Telangana",
-  "Kothagudem, Telangana","Zaheerabad, Telangana","Sangareddy, Telangana","Medak, Telangana",
-  "Wanaparthy, Telangana","Jangaon, Telangana","Bhongir, Telangana","Gadwal, Telangana",
-  "Srisailam, Telangana","Yadgirigutta, Telangana","Vargal, Telangana",
+  "Hyderabad, Telangana", "Warangal, Telangana", "Nizamabad, Telangana", "Karimnagar, Telangana",
+  "Khammam, Telangana", "Mahbubnagar, Telangana", "Nalgonda, Telangana", "Siddipet, Telangana",
+  "Adilabad, Telangana", "Suryapet, Telangana", "Mancherial, Telangana", "Ramagundam, Telangana",
+  "Miryalaguda, Telangana", "Jagtial, Telangana", "Bodhan, Telangana", "Kamareddy, Telangana",
+  "Kothagudem, Telangana", "Zaheerabad, Telangana", "Sangareddy, Telangana", "Medak, Telangana",
+  "Wanaparthy, Telangana", "Jangaon, Telangana", "Bhongir, Telangana", "Gadwal, Telangana",
+  "Srisailam, Telangana", "Yadgirigutta, Telangana", "Wargal, Telangana",
   // Andhra Pradesh
-  "Visakhapatnam, Andhra Pradesh","Vijayawada, Andhra Pradesh","Guntur, Andhra Pradesh",
-  "Nellore, Andhra Pradesh","Kurnool, Andhra Pradesh","Tirupati, Andhra Pradesh",
-  "Rajahmundry, Andhra Pradesh","Kadapa, Andhra Pradesh","Kakinada, Andhra Pradesh",
-  "Anantapur, Andhra Pradesh","Eluru, Andhra Pradesh","Ongole, Andhra Pradesh",
-  "Srikakulam, Andhra Pradesh","Chittoor, Andhra Pradesh","Machilipatnam, Andhra Pradesh",
-  "Proddatur, Andhra Pradesh","Tenali, Andhra Pradesh","Narasaraopet, Andhra Pradesh",
-  "Amaravati, Andhra Pradesh","Hindupur, Andhra Pradesh","Vizianagaram, Andhra Pradesh",
+  "Visakhapatnam, Andhra Pradesh", "Vijayawada, Andhra Pradesh", "Guntur, Andhra Pradesh",
+  "Nellore, Andhra Pradesh", "Kurnool, Andhra Pradesh", "Tirupati, Andhra Pradesh",
+  "Rajahmundry, Andhra Pradesh", "Kadapa, Andhra Pradesh", "Kakinada, Andhra Pradesh",
+  "Anantapur, Andhra Pradesh", "Eluru, Andhra Pradesh", "Ongole, Andhra Pradesh",
+  "Srikakulam, Andhra Pradesh", "Chittoor, Andhra Pradesh", "Machilipatnam, Andhra Pradesh",
+  "Proddatur, Andhra Pradesh", "Tenali, Andhra Pradesh", "Narasaraopet, Andhra Pradesh",
+  "Amaravati, Andhra Pradesh", "Hindupur, Andhra Pradesh", "Vizianagaram, Andhra Pradesh",
   // Maharashtra
-  "Mumbai, Maharashtra","Pune, Maharashtra","Nagpur, Maharashtra","Nashik, Maharashtra",
-  "Aurangabad, Maharashtra","Solapur, Maharashtra","Kolhapur, Maharashtra","Thane, Maharashtra",
-  "Navi Mumbai, Maharashtra","Sangli, Maharashtra","Amravati, Maharashtra","Latur, Maharashtra",
-  "Ahmednagar, Maharashtra","Satara, Maharashtra","Jalgaon, Maharashtra","Akola, Maharashtra",
-  "Parbhani, Maharashtra","Ratnagiri, Maharashtra","Mahabaleshwar, Maharashtra",
-  "Shirdi, Maharashtra","Lonavala, Maharashtra",
+  "Mumbai, Maharashtra", "Pune, Maharashtra", "Nagpur, Maharashtra", "Nashik, Maharashtra",
+  "Aurangabad, Maharashtra", "Solapur, Maharashtra", "Kolhapur, Maharashtra", "Thane, Maharashtra",
+  "Navi Mumbai, Maharashtra", "Sangli, Maharashtra", "Amravati, Maharashtra", "Latur, Maharashtra",
+  "Ahmednagar, Maharashtra", "Satara, Maharashtra", "Jalgaon, Maharashtra", "Akola, Maharashtra",
+  "Parbhani, Maharashtra", "Ratnagiri, Maharashtra", "Mahabaleshwar, Maharashtra",
+  "Shirdi, Maharashtra", "Lonavala, Maharashtra",
   // Karnataka
-  "Bengaluru, Karnataka","Mysuru, Karnataka","Mangaluru, Karnataka","Hubli, Karnataka",
-  "Dharwad, Karnataka","Belgaum, Karnataka","Gulbarga, Karnataka","Davangere, Karnataka",
-  "Bellary, Karnataka","Shimoga, Karnataka","Tumkur, Karnataka","Udupi, Karnataka",
-  "Hassan, Karnataka","Bijapur, Karnataka","Hampi, Karnataka","Coorg, Karnataka",
+  "Bengaluru, Karnataka", "Mysuru, Karnataka", "Mangaluru, Karnataka", "Hubli, Karnataka",
+  "Dharwad, Karnataka", "Belgaum, Karnataka", "Gulbarga, Karnataka", "Davangere, Karnataka",
+  "Bellary, Karnataka", "Shimoga, Karnataka", "Tumkur, Karnataka", "Udupi, Karnataka",
+  "Hassan, Karnataka", "Bijapur, Karnataka", "Hampi, Karnataka", "Coorg, Karnataka",
   // Tamil Nadu
-  "Chennai, Tamil Nadu","Coimbatore, Tamil Nadu","Madurai, Tamil Nadu","Tiruchirappalli, Tamil Nadu",
-  "Salem, Tamil Nadu","Tirunelveli, Tamil Nadu","Erode, Tamil Nadu","Vellore, Tamil Nadu",
-  "Thanjavur, Tamil Nadu","Ooty, Tamil Nadu","Kodaikanal, Tamil Nadu","Kanchipuram, Tamil Nadu",
-  "Mahabalipuram, Tamil Nadu","Pondicherry, Tamil Nadu","Rameswaram, Tamil Nadu",
+  "Chennai, Tamil Nadu", "Coimbatore, Tamil Nadu", "Madurai, Tamil Nadu", "Tiruchirappalli, Tamil Nadu",
+  "Salem, Tamil Nadu", "Tirunelveli, Tamil Nadu", "Erode, Tamil Nadu", "Vellore, Tamil Nadu",
+  "Thanjavur, Tamil Nadu", "Ooty, Tamil Nadu", "Kodaikanal, Tamil Nadu", "Kanchipuram, Tamil Nadu",
+  "Mahabalipuram, Tamil Nadu", "Pondicherry, Tamil Nadu", "Rameswaram, Tamil Nadu",
   // Kerala
-  "Thiruvananthapuram, Kerala","Kochi, Kerala","Kozhikode, Kerala","Kollam, Kerala",
-  "Thrissur, Kerala","Alappuzha, Kerala","Kannur, Kerala","Palakkad, Kerala",
-  "Munnar, Kerala","Wayanad, Kerala","Thekkady, Kerala","Kumarakom, Kerala","Alleppey, Kerala",
+  "Thiruvananthapuram, Kerala", "Kochi, Kerala", "Kozhikode, Kerala", "Kollam, Kerala",
+  "Thrissur, Kerala", "Alappuzha, Kerala", "Kannur, Kerala", "Palakkad, Kerala",
+  "Munnar, Kerala", "Wayanad, Kerala", "Thekkady, Kerala", "Kumarakom, Kerala", "Alleppey, Kerala",
   // Delhi & NCR
-  "New Delhi, Delhi","Noida, Uttar Pradesh","Gurgaon, Haryana","Faridabad, Haryana",
-  "Ghaziabad, Uttar Pradesh","Greater Noida, Uttar Pradesh",
+  "New Delhi, Delhi", "Noida, Uttar Pradesh", "Gurgaon, Haryana", "Faridabad, Haryana",
+  "Ghaziabad, Uttar Pradesh", "Greater Noida, Uttar Pradesh",
   // Rajasthan
-  "Jaipur, Rajasthan","Jodhpur, Rajasthan","Udaipur, Rajasthan","Kota, Rajasthan",
-  "Ajmer, Rajasthan","Bikaner, Rajasthan","Jaisalmer, Rajasthan","Mount Abu, Rajasthan",
-  "Pushkar, Rajasthan","Alwar, Rajasthan","Bhilwara, Rajasthan",
+  "Jaipur, Rajasthan", "Jodhpur, Rajasthan", "Udaipur, Rajasthan", "Kota, Rajasthan",
+  "Ajmer, Rajasthan", "Bikaner, Rajasthan", "Jaisalmer, Rajasthan", "Mount Abu, Rajasthan",
+  "Pushkar, Rajasthan", "Alwar, Rajasthan", "Bhilwara, Rajasthan",
   // Gujarat
-  "Ahmedabad, Gujarat","Surat, Gujarat","Vadodara, Gujarat","Rajkot, Gujarat",
-  "Gandhinagar, Gujarat","Bhavnagar, Gujarat","Junagadh, Gujarat","Dwarka, Gujarat",
-  "Somnath, Gujarat","Kutch, Gujarat","Gir, Gujarat",
+  "Ahmedabad, Gujarat", "Surat, Gujarat", "Vadodara, Gujarat", "Rajkot, Gujarat",
+  "Gandhinagar, Gujarat", "Bhavnagar, Gujarat", "Junagadh, Gujarat", "Dwarka, Gujarat",
+  "Somnath, Gujarat", "Kutch, Gujarat", "Gir, Gujarat",
   // Uttar Pradesh
-  "Lucknow, Uttar Pradesh","Varanasi, Uttar Pradesh","Agra, Uttar Pradesh","Kanpur, Uttar Pradesh",
-  "Allahabad, Uttar Pradesh","Meerut, Uttar Pradesh","Mathura, Uttar Pradesh","Ayodhya, Uttar Pradesh",
-  "Gorakhpur, Uttar Pradesh","Aligarh, Uttar Pradesh","Bareilly, Uttar Pradesh",
+  "Lucknow, Uttar Pradesh", "Varanasi, Uttar Pradesh", "Agra, Uttar Pradesh", "Kanpur, Uttar Pradesh",
+  "Allahabad, Uttar Pradesh", "Meerut, Uttar Pradesh", "Mathura, Uttar Pradesh", "Ayodhya, Uttar Pradesh",
+  "Gorakhpur, Uttar Pradesh", "Aligarh, Uttar Pradesh", "Bareilly, Uttar Pradesh",
   // Madhya Pradesh
-  "Bhopal, Madhya Pradesh","Indore, Madhya Pradesh","Gwalior, Madhya Pradesh","Jabalpur, Madhya Pradesh",
-  "Ujjain, Madhya Pradesh","Khajuraho, Madhya Pradesh","Pachmarhi, Madhya Pradesh",
+  "Bhopal, Madhya Pradesh", "Indore, Madhya Pradesh", "Gwalior, Madhya Pradesh", "Jabalpur, Madhya Pradesh",
+  "Ujjain, Madhya Pradesh", "Khajuraho, Madhya Pradesh", "Pachmarhi, Madhya Pradesh",
   // West Bengal
-  "Kolkata, West Bengal","Siliguri, West Bengal","Durgapur, West Bengal","Darjeeling, West Bengal",
-  "Howrah, West Bengal","Asansol, West Bengal","Shantiniketan, West Bengal",
+  "Kolkata, West Bengal", "Siliguri, West Bengal", "Durgapur, West Bengal", "Darjeeling, West Bengal",
+  "Howrah, West Bengal", "Asansol, West Bengal", "Shantiniketan, West Bengal",
   // Bihar & Jharkhand
-  "Patna, Bihar","Gaya, Bihar","Bodh Gaya, Bihar","Ranchi, Jharkhand","Jamshedpur, Jharkhand",
+  "Patna, Bihar", "Gaya, Bihar", "Bodh Gaya, Bihar", "Ranchi, Jharkhand", "Jamshedpur, Jharkhand",
   "Deoghar, Jharkhand",
   // Odisha
-  "Bhubaneswar, Odisha","Cuttack, Odisha","Puri, Odisha","Rourkela, Odisha","Konark, Odisha",
+  "Bhubaneswar, Odisha", "Cuttack, Odisha", "Puri, Odisha", "Rourkela, Odisha", "Konark, Odisha",
   // Goa
-  "Panaji, Goa","Margao, Goa","Vasco da Gama, Goa","Calangute, Goa","Baga, Goa",
+  "Panaji, Goa", "Margao, Goa", "Vasco da Gama, Goa", "Calangute, Goa", "Baga, Goa",
   // Punjab & Haryana
-  "Chandigarh, Punjab","Amritsar, Punjab","Ludhiana, Punjab","Jalandhar, Punjab",
-  "Patiala, Punjab","Karnal, Haryana","Ambala, Haryana","Panipat, Haryana","Hisar, Haryana",
+  "Chandigarh, Punjab", "Amritsar, Punjab", "Ludhiana, Punjab", "Jalandhar, Punjab",
+  "Patiala, Punjab", "Karnal, Haryana", "Ambala, Haryana", "Panipat, Haryana", "Hisar, Haryana",
   // Himachal Pradesh
-  "Shimla, Himachal Pradesh","Manali, Himachal Pradesh","Dharamshala, Himachal Pradesh",
-  "Dalhousie, Himachal Pradesh","Kullu, Himachal Pradesh","Kasol, Himachal Pradesh",
+  "Shimla, Himachal Pradesh", "Manali, Himachal Pradesh", "Dharamshala, Himachal Pradesh",
+  "Dalhousie, Himachal Pradesh", "Kullu, Himachal Pradesh", "Kasol, Himachal Pradesh",
   "Spiti Valley, Himachal Pradesh",
   // Uttarakhand
-  "Dehradun, Uttarakhand","Rishikesh, Uttarakhand","Haridwar, Uttarakhand","Mussoorie, Uttarakhand",
-  "Nainital, Uttarakhand","Jim Corbett, Uttarakhand","Badrinath, Uttarakhand","Kedarnath, Uttarakhand",
+  "Dehradun, Uttarakhand", "Rishikesh, Uttarakhand", "Haridwar, Uttarakhand", "Mussoorie, Uttarakhand",
+  "Nainital, Uttarakhand", "Jim Corbett, Uttarakhand", "Badrinath, Uttarakhand", "Kedarnath, Uttarakhand",
   // Jammu & Kashmir
-  "Srinagar, Jammu & Kashmir","Jammu, Jammu & Kashmir","Gulmarg, Jammu & Kashmir",
-  "Pahalgam, Jammu & Kashmir","Leh, Ladakh","Ladakh, Ladakh",
+  "Srinagar, Jammu & Kashmir", "Jammu, Jammu & Kashmir", "Gulmarg, Jammu & Kashmir",
+  "Pahalgam, Jammu & Kashmir", "Leh, Ladakh", "Ladakh, Ladakh",
   // North East
-  "Guwahati, Assam","Shillong, Meghalaya","Gangtok, Sikkim","Imphal, Manipur",
-  "Aizawl, Mizoram","Agartala, Tripura","Itanagar, Arunachal Pradesh","Kohima, Nagaland",
-  "Kaziranga, Assam","Tawang, Arunachal Pradesh",
+  "Guwahati, Assam", "Shillong, Meghalaya", "Gangtok, Sikkim", "Imphal, Manipur",
+  "Aizawl, Mizoram", "Agartala, Tripura", "Itanagar, Arunachal Pradesh", "Kohima, Nagaland",
+  "Kaziranga, Assam", "Tawang, Arunachal Pradesh",
   // Chhattisgarh
-  "Raipur, Chhattisgarh","Bhilai, Chhattisgarh","Bilaspur, Chhattisgarh"
+  "Raipur, Chhattisgarh", "Bhilai, Chhattisgarh", "Bilaspur, Chhattisgarh"
 ];
 
 function initCityAutocomplete() {

@@ -344,6 +344,30 @@ button {
   background: var(--accent-dark) !important;
 }
 
+.nav-phone {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--white);
+  transition: var(--transition);
+  margin-right: auto;
+  margin-left: 30px;
+}
+
+.navbar.scrolled .nav-phone {
+  color: var(--dark);
+}
+
+.nav-phone:hover {
+  color: var(--accent-dark);
+}
+
+.navbar:not(.scrolled) .nav-phone:hover {
+  color: var(--accent);
+}
+
 .hamburger {
   display: none;
   flex-direction: column;
@@ -411,7 +435,8 @@ button {
 /* ── Hero ── */
 .hero {
   position: relative;
-  min-height: 50vh; /* Reduced from 100vh to half height */
+  min-height: 50vh;
+  /* Reduced from 100vh to half height */
   display: flex;
   align-items: center;
   overflow: hidden;
@@ -452,28 +477,33 @@ button {
   grid-template-columns: 1fr 420px;
   gap: 60px;
   align-items: center;
-  min-height: 50vh; /* Also reduced to half height here */
+  min-height: 50vh;
+  /* Also reduced to half height here */
 }
 
 .hero-badge {
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  gap: 8px;
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.25);
+  justify-content: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(12px);
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
   border-radius: 50px;
-  padding: 8px 18px;
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  margin-bottom: 24px;
+  padding: 12px 28px;
+  font-size: 25px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  margin: 0 auto 30px auto;
   color: #fde68a;
+  text-transform: uppercase;
+  width: fit-content;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
 }
 
 .hero-title {
   font-family: var(--font-serif);
-  font-size: clamp(38px, 5vw, 68px);
+  font-size: clamp(32px, 4.5vw, 54px);
   font-weight: 800;
   line-height: 1.12;
   margin-bottom: 22px;
@@ -524,7 +554,8 @@ button {
 .hero-card {
   background: rgba(255, 255, 255, 0.97);
   border-radius: var(--radius-lg);
-  padding: 24px; /* Reduced padding from 36px */
+  padding: 24px;
+  /* Reduced padding from 36px */
   box-shadow: var(--shadow-xl);
   color: var(--dark);
   backdrop-filter: blur(10px);
@@ -544,7 +575,8 @@ button {
 }
 
 .form-group {
-  margin-bottom: 12px; /* Reduced from 16px */
+  margin-bottom: 12px;
+  /* Reduced from 16px */
 }
 
 .form-group label {
@@ -561,7 +593,8 @@ button {
 .form-group select,
 .form-group textarea {
   width: 100%;
-  padding: 10px 14px; /* Reduced from 13px 16px */
+  padding: 10px 14px;
+  /* Reduced from 13px 16px */
   border: 1.5px solid var(--border);
   border-radius: var(--radius-sm);
   font-size: 14px;
@@ -1380,6 +1413,43 @@ button {
   color: var(--accent);
 }
 
+/* ── Floating Actions ── */
+.call-float {
+  position: fixed;
+  bottom: 104px;
+  right: 32px;
+  z-index: 9999;
+  width: 62px;
+  height: 62px;
+  background: var(--accent);
+  color: var(--primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(251, 191, 36, 0.4);
+  transition: var(--transition);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.call-float:hover {
+  transform: scale(1.1);
+  background: var(--white);
+  color: var(--accent-dark);
+}
+
+.call-float::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: rgba(251, 191, 36, 0.4);
+  animation: wa-pulse 2.5s infinite;
+  animation-delay: 1.25s;
+}
+
 /* ── Floating WhatsApp ── */
 .whatsapp-float {
   position: fixed;
@@ -1402,7 +1472,7 @@ button {
 
 .whatsapp-chat-bubble {
   position: fixed;
-  bottom: 104px;
+  bottom: 176px;
   right: 28px;
   width: max-content;
   background: #ffffff;
@@ -1996,7 +2066,8 @@ button {
 @media (max-width: 768px) {
   .nav-logo-img {
     height: 48px;
-    margin-left: 0; /* Reset custom desktop margin on mobile to avoid overflow */
+    margin-left: 0;
+    /* Reset custom desktop margin on mobile to avoid overflow */
   }
 
   .section-pad {
@@ -2028,6 +2099,10 @@ button {
   }
 
   .nav-links {
+    display: none;
+  }
+
+  .nav-phone {
     display: none;
   }
 
@@ -2086,6 +2161,19 @@ button {
     width: 54px;
     height: 54px;
     font-size: 24px;
+  }
+
+  .call-float {
+    bottom: 84px;
+    right: 20px;
+    width: 54px;
+    height: 54px;
+    font-size: 24px;
+  }
+
+  .whatsapp-chat-bubble {
+    bottom: 148px;
+    right: 20px;
   }
 
   .booking-steps {
