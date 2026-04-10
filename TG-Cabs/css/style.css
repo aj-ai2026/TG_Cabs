@@ -306,16 +306,17 @@ button {
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 4px;
 }
 
 .nav-links a {
-  padding: 8px 14px;
+  padding: 8px 10px;
   font-size: 14px;
   font-weight: 500;
   color: var(--dark);
   border-radius: var(--radius-sm);
   transition: var(--transition);
+  white-space: nowrap;
 }
 
 .navbar:not(.scrolled) .nav-links a {
@@ -353,7 +354,8 @@ button {
   color: var(--white);
   transition: var(--transition);
   margin-right: auto;
-  margin-left: 30px;
+  margin-left: 20px;
+  white-space: nowrap;
 }
 
 .navbar.scrolled .nav-phone {
