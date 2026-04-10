@@ -277,6 +277,7 @@
         <li><a href="services.html">Services</a></li>
         <li><a href="packages.html">Packages</a></li>
         <li><a href="fleet.html">Fleet</a></li>
+        <li><a href="hamara-hyderabad.html">Hamara Hyderabad</a></li>
         <li><a href="contact.html">Contact</a></li>
         <li><a href="booking.html" class="nav-cta">Book Now</a></li>
       </ul>
@@ -291,6 +292,7 @@
     <a href="services.html">Services</a>
     <a href="packages.html">Tour Packages</a>
     <a href="fleet.html">Our Fleet</a>
+    <a href="hamara-hyderabad.html">Hamara Hyderabad</a>
     <a href="contact.html">Contact</a>
     <a href="booking.html" class="nav-cta">📞 Book Now</a>
   </div>
@@ -370,7 +372,7 @@
               <option>Tour Package</option>
             </select>
           </div>
-          <div class="form-row">
+          <div class="form-row" id="indexOutstationFields">
             <div class="form-group">
               <label>From</label>
               <input type="text" placeholder="e.g. Hyderabad" data-autocomplete="city" autocomplete="off" required />
@@ -378,6 +380,20 @@
             <div class="form-group">
               <label>To</label>
               <input type="text" placeholder="e.g. Vijayawada" data-autocomplete="city" autocomplete="off" required />
+            </div>
+          </div>
+          <div class="form-row" id="indexLocalFields" style="display: none;">
+            <div class="form-group">
+              <label>City</label>
+              <input type="text" value="Hyderabad" readonly style="background-color: rgba(255,255,255,0.1); color: var(--muted); cursor: not-allowed; border-color: rgba(255,255,255,0.2);" />
+            </div>
+            <div class="form-group">
+              <label>Package / Hours</label>
+              <select>
+                <option value="">Select Package</option>
+                <option value="8 Hours / 80 Kms">8 Hours / 80 Kms</option>
+                <option value="12 Hours / 120 Kms">12 Hours / 120 Kms</option>
+              </select>
             </div>
           </div>
           <div class="form-group">

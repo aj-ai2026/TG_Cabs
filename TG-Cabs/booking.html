@@ -85,6 +85,7 @@
         <li><a href="services.html">Services</a></li>
         <li><a href="packages.html">Packages</a></li>
         <li><a href="fleet.html">Fleet</a></li>
+        <li><a href="hamara-hyderabad.html">Hamara Hyderabad</a></li>
         <li><a href="contact.html">Contact</a></li>
         <li><a href="booking.html" class="nav-cta active">Book Now</a></li>
       </ul>
@@ -93,7 +94,7 @@
   </nav>
   <div class="mobile-menu" id="mobileMenu">
     <a href="index.html">Home</a><a href="about.html">About Us</a><a href="services.html">Services</a>
-    <a href="packages.html">Tour Packages</a><a href="fleet.html">Our Fleet</a><a href="contact.html">Contact</a>
+    <a href="packages.html">Tour Packages</a><a href="fleet.html">Our Fleet</a><a href="hamara-hyderabad.html">Hamara Hyderabad</a><a href="contact.html">Contact</a>
     <a href="booking.html" class="nav-cta">📞 Book Now</a>
   </div>
 
@@ -219,11 +220,21 @@
 
           <!-- SECTION 2: Journey Details -->
           <h4 style="font-size:16px;font-weight:700;margin-bottom:18px;color:var(--dark)">Step 2 — Journey Details</h4>
-          <div class="form-row">
+          <div class="form-row" id="outstationFields" style="display: none;">
             <div class="form-group"><label>Pickup City / Location</label><input type="text" placeholder="e.g. Hyderabad"
-                data-autocomplete="city" autocomplete="off" required /></div>
+                data-autocomplete="city" autocomplete="off" /></div>
             <div class="form-group"><label>Drop Location / Destination</label><input type="text"
-                placeholder="e.g. Vijayawada" data-autocomplete="city" autocomplete="off" required /></div>
+                placeholder="e.g. Vijayawada" data-autocomplete="city" autocomplete="off" /></div>
+          </div>
+          <div class="form-row" id="localFields">
+            <div class="form-group"><label>City</label><input type="text" value="Hyderabad" required readonly style="background-color: #f8fafc; color: #64748b; cursor: not-allowed; border-color: #e2e8f0;" /></div>
+            <div class="form-group"><label>Package / Hours</label>
+              <select required>
+                <option value="">Select Package</option>
+                <option value="8 Hours / 80 Kms">8 Hours / 80 Kms</option>
+                <option value="12 Hours / 120 Kms">12 Hours / 120 Kms</option>
+              </select>
+            </div>
           </div>
           <div class="form-row">
             <div class="form-group"><label>Travel Date</label><input type="date" required /></div>
@@ -349,6 +360,7 @@
               <li><a href="services.html">Services</a></li>
               <li><a href="packages.html">Packages</a></li>
               <li><a href="fleet.html">Fleet</a></li>
+              <li><a href="hamara-hyderabad.html">Hamara Hyderabad</a></li>
               <li><a href="booking.html">Book Now</a></li>
             </ul>
           </div>

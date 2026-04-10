@@ -93,6 +93,7 @@ const WA_NUMBER = '919676833444';
 function getFormData(form) {
   const data = [];
   form.querySelectorAll('.form-group').forEach(group => {
+    if (group.closest('[style*="display: none"]')) return; // skip hidden fields
     const label = group.querySelector('label');
     const input = group.querySelector('input, select, textarea');
     if (label && input && input.value.trim()) {
@@ -199,13 +200,53 @@ if (filterTabs.length) {
   });
 }
 
-/* ── Trip type selector (Booking page) ── */
+/* ── Trip type selectors logic (Booking & Index) ── */
+// Booking Page
 document.querySelectorAll('.trip-type-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     document.querySelectorAll('.trip-type-btn').forEach(b => b.classList.remove('selected'));
     btn.classList.add('selected');
+    
+    const outstationFields = document.getElementById('outstationFields');
+    const localFields = document.getElementById('localFields');
+    if (outstationFields && localFields) {
+      if (btn.dataset.type === 'local') {
+        outstationFields.style.display = 'none';
+        outstationFields.querySelectorAll('input').forEach(inp => inp.removeAttribute('required'));
+        localFields.style.display = '';
+        localFields.querySelectorAll('select').forEach(inp => inp.setAttribute('required', 'true'));
+      } else {
+        localFields.style.display = 'none';
+        localFields.querySelectorAll('select').forEach(inp => inp.removeAttribute('required'));
+        outstationFields.style.display = '';
+        outstationFields.querySelectorAll('input').forEach(inp => inp.setAttribute('required', 'true'));
+      }
+    }
   });
 });
+
+// Index Page (Hero Form)
+const heroTripSelect = document.querySelector('#heroForm select');
+if (heroTripSelect) {
+  heroTripSelect.addEventListener('change', (e) => {
+    const isLocal = e.target.value === 'Local (Half/Full Day)';
+    const outstationFields = document.getElementById('indexOutstationFields');
+    const localFields = document.getElementById('indexLocalFields');
+    if (outstationFields && localFields) {
+      if (isLocal) {
+        outstationFields.style.display = 'none';
+        outstationFields.querySelectorAll('input').forEach(inp => inp.removeAttribute('required'));
+        localFields.style.display = '';
+        localFields.querySelectorAll('select').forEach(inp => inp.setAttribute('required', 'true'));
+      } else {
+        localFields.style.display = 'none';
+        localFields.querySelectorAll('select').forEach(inp => inp.removeAttribute('required'));
+        outstationFields.style.display = '';
+        outstationFields.querySelectorAll('input').forEach(inp => inp.setAttribute('required', 'true'));
+      }
+    }
+  });
+}
 
 /* ── Testimonial Slider ── */
 const testimonialTrack = document.getElementById('testimonialTrack');
