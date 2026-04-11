@@ -229,21 +229,24 @@ tripBtns.forEach(btn => {
 /* ── Pre-select Trip Type from URL ── */
 function preselectTripFromURL() {
   const params = new URLSearchParams(window.location.search);
-  const service = params.get('service');
-  console.log('Preselecting service:', service);
+  // Support both 'service' (ours) and 'type' (contributor's)
+  const service = params.get('service') || params.get('type');
+  console.log('Preselecting service/type:', service);
   
   if (service) {
-    // Some links might use 'pilgrimage' or 'tour'
     const targetBtn = document.querySelector(`.trip-type-btn[data-type="${service}"]`);
     if (targetBtn) {
-      targetBtn.click();
-      console.log('Successfully clicked target button:', service);
-      
-      // Scroll to form for better UX
-      const form = document.getElementById('bookingForm');
-      if (form) form.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      // Small timeout to ensure DOM selection logic is initialized
+      setTimeout(() => {
+        targetBtn.click();
+        console.log('Successfully clicked target button:', service);
+        
+        // Scroll to form for better UX
+        const form = document.getElementById('bookingForm');
+        if (form) form.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }, 100);
     } else {
-      console.log('Could not find button for service:', service);
+      console.log('Could not find button for:', service);
     }
   }
 }
