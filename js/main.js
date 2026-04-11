@@ -202,9 +202,10 @@ if (filterTabs.length) {
 
 /* ── Trip type selectors logic (Booking & Index) ── */
 // Booking Page
-document.querySelectorAll('.trip-type-btn').forEach(btn => {
+const tripBtns = document.querySelectorAll('.trip-type-btn');
+tripBtns.forEach(btn => {
   btn.addEventListener('click', () => {
-    document.querySelectorAll('.trip-type-btn').forEach(b => b.classList.remove('selected'));
+    tripBtns.forEach(b => b.classList.remove('selected'));
     btn.classList.add('selected');
     
     const outstationFields = document.getElementById('outstationFields');
@@ -224,6 +225,32 @@ document.querySelectorAll('.trip-type-btn').forEach(btn => {
     }
   });
 });
+
+/* ── Pre-select Trip Type from URL ── */
+function preselectTripFromURL() {
+  const params = new URLSearchParams(window.location.search);
+  const service = params.get('service');
+  console.log('Preselecting service:', service);
+  
+  if (service) {
+    // Some links might use 'pilgrimage' or 'tour'
+    const targetBtn = document.querySelector(`.trip-type-btn[data-type="${service}"]`);
+    if (targetBtn) {
+      targetBtn.click();
+      console.log('Successfully clicked target button:', service);
+      
+      // Scroll to form for better UX
+      const form = document.getElementById('bookingForm');
+      if (form) form.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    } else {
+      console.log('Could not find button for service:', service);
+    }
+  }
+}
+
+// Run on both DOMContentLoaded and load to be safe
+document.addEventListener('DOMContentLoaded', preselectTripFromURL);
+window.addEventListener('load', preselectTripFromURL);
 
 // Index Page (Hero Form)
 const heroTripSelect = document.querySelector('#heroForm select');
