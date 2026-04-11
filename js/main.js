@@ -225,6 +225,20 @@ document.querySelectorAll('.trip-type-btn').forEach(btn => {
   });
 });
 
+/* ── Auto-select trip type from URL param (?type=local etc.) ── */
+(function () {
+  const params = new URLSearchParams(window.location.search);
+  const typeParam = params.get('type');
+  if (typeParam) {
+    const target = document.querySelector(`.trip-type-btn[data-type="${typeParam}"]`);
+    if (target) {
+      // small delay so DOM is fully ready
+      setTimeout(() => target.click(), 100);
+      target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }
+})();
+
 // Index Page (Hero Form)
 const heroTripSelect = document.querySelector('#heroForm select');
 if (heroTripSelect) {

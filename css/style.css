@@ -934,8 +934,8 @@ button {
 }
 
 .package-card p {
-  font-size: 13px;
-  color: var(--muted);
+  font-size: 14.5px;
+  color: #111111;
   line-height: 1.7;
   margin-bottom: 18px;
 }
@@ -1014,10 +1014,11 @@ button {
   height: 100%;
   object-fit: cover;
   transition: transform 0.5s;
+  transform: scaleX(-1);
 }
 
 .fleet-card:hover .fleet-img img {
-  transform: scale(1.05);
+  transform: scaleX(-1) scale(1.05);
 }
 
 .fleet-body {
@@ -1025,9 +1026,10 @@ button {
 }
 
 .fleet-body h3 {
-  font-size: 17px;
+  font-size: 24px;
   font-weight: 700;
   margin-bottom: 6px;
+  color: var(--dark);
 }
 
 .fleet-body .fleet-type {
@@ -1959,10 +1961,44 @@ button {
   transition: var(--transition);
 }
 
-.trip-type-btn:hover,
-.trip-type-btn.selected {
+.trip-type-btn:hover {
   border-color: var(--accent);
   background: #fffef5;
+}
+
+/* Each type gets its own dark highlight color when selected */
+.trip-type-btn.selected[data-type="local"] {
+  border-color: #1d4ed8;
+  background: #1d4ed8;
+  color: #ffffff;
+}
+.trip-type-btn.selected[data-type="outstation"] {
+  border-color: #047857;
+  background: #047857;
+  color: #ffffff;
+}
+.trip-type-btn.selected[data-type="airport"] {
+  border-color: #6d28d9;
+  background: #6d28d9;
+  color: #ffffff;
+}
+.trip-type-btn.selected[data-type="tour"] {
+  border-color: #b45309;
+  background: #b45309;
+  color: #ffffff;
+}
+.trip-type-btn.selected[data-type="pilgrimage"] {
+  border-color: #b91c1c;
+  background: #b91c1c;
+  color: #ffffff;
+}
+.trip-type-btn.selected[data-type="corporate"] {
+  border-color: #1e40af;
+  background: #1e40af;
+  color: #ffffff;
+}
+.trip-type-btn.selected svg {
+  stroke: #ffffff;
 }
 
 .trip-type-btn .icon {
