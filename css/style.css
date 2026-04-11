@@ -288,6 +288,7 @@ button {
   color: var(--muted);
   letter-spacing: 1.5px;
   text-transform: uppercase;
+  white-space: nowrap;
 }
 
 .navbar.scrolled .nav-logo-text .brand {
@@ -2111,6 +2112,10 @@ button {
     height: 64px;
     margin-left: 0;
     /* Reset custom desktop margin on mobile to avoid overflow */
+  }
+
+  .nav-logo-text .tagline {
+    font-size: 9px;
   }
 
   .section-pad {
