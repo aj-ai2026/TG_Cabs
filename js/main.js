@@ -231,22 +231,30 @@ function preselectTripFromURL() {
   const params = new URLSearchParams(window.location.search);
   // Support both 'service' (ours) and 'type' (contributor's)
   const service = params.get('service') || params.get('type');
-  console.log('Preselecting service/type:', service);
-  
+  const fromParam = params.get('from');
+  const toParam   = params.get('to');
+
   if (service) {
     const targetBtn = document.querySelector(`.trip-type-btn[data-type="${service}"]`);
     if (targetBtn) {
       // Small timeout to ensure DOM selection logic is initialized
       setTimeout(() => {
         targetBtn.click();
-        console.log('Successfully clicked target button:', service);
-        
+
+        // Pre-fill from / to fields if provided (outstation one-way links)
+        if (fromParam) {
+          const fromInput = document.getElementById('bookingFrom');
+          if (fromInput) fromInput.value = fromParam;
+        }
+        if (toParam) {
+          const toInput = document.getElementById('bookingTo');
+          if (toInput) toInput.value = toParam;
+        }
+
         // Scroll to form for better UX
         const form = document.getElementById('bookingForm');
         if (form) form.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      }, 100);
-    } else {
-      console.log('Could not find button for:', service);
+      }, 150);
     }
   }
 }
