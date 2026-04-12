@@ -255,7 +255,7 @@ button {
 }
 
 .nav-logo-img {
-  height: 90px;
+  height: 95px;
   width: auto;
   max-width: 250px;
   object-fit: contain;
@@ -289,7 +289,7 @@ button {
   letter-spacing: 1.5px;
   text-transform: uppercase;
   white-space: nowrap;
-  margin-top: -20px;
+  margin-top: -12px;
 }
 
 .navbar.scrolled .nav-logo-text .brand {
@@ -773,7 +773,8 @@ button {
 
 .service-link:hover {
   gap: 10px;
-  background-color: #e5a71a; /* slightly darker accent */
+  background-color: #e5a71a;
+  /* slightly darker accent */
   box-shadow: 0 4px 12px rgba(251, 191, 36, 0.3);
 }
 
@@ -1974,31 +1975,37 @@ button {
   background: #1d4ed8;
   color: #ffffff;
 }
+
 .trip-type-btn.selected[data-type="outstation"] {
   border-color: #047857;
   background: #047857;
   color: #ffffff;
 }
+
 .trip-type-btn.selected[data-type="airport"] {
   border-color: #6d28d9;
   background: #6d28d9;
   color: #ffffff;
 }
+
 .trip-type-btn.selected[data-type="tour"] {
   border-color: #b45309;
   background: #b45309;
   color: #ffffff;
 }
+
 .trip-type-btn.selected[data-type="pilgrimage"] {
   border-color: #b91c1c;
   background: #b91c1c;
   color: #ffffff;
 }
+
 .trip-type-btn.selected[data-type="corporate"] {
   border-color: #1e40af;
   background: #1e40af;
   color: #ffffff;
 }
+
 .trip-type-btn.selected svg {
   stroke: #ffffff;
 }
