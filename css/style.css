@@ -245,7 +245,7 @@ button {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 76px;
+  height: 85px;
 }
 
 .nav-logo {
@@ -255,7 +255,7 @@ button {
 }
 
 .nav-logo-img {
-  height: 100px;
+  height: 90px;
   width: auto;
   max-width: 250px;
   object-fit: contain;
@@ -263,7 +263,7 @@ button {
   /* Ensure it stays aligned to the left and bottom */
   flex-shrink: 0;
   /* margin-top: 10px; */
-  margin-left: 50px;
+  margin-left: 0;
   /* Pulls the image left to offset transparent padding inside the PNG */
   margin-bottom: -15px;
   /* Negative margin to pull tagline up into the gap */
@@ -289,6 +289,7 @@ button {
   letter-spacing: 1.5px;
   text-transform: uppercase;
   white-space: nowrap;
+  margin-top: -20px;
 }
 
 .navbar.scrolled .nav-logo-text .brand {
