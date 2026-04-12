@@ -88,7 +88,7 @@ function setActiveNav() {
 setActiveNav();
 
 /* ── WhatsApp Form Integration ── */
-const WA_NUMBER = '919676833444';
+const WA_NUMBER = '919704899400';
 
 function getFormData(form) {
   const data = [];
@@ -207,7 +207,7 @@ tripBtns.forEach(btn => {
   btn.addEventListener('click', () => {
     tripBtns.forEach(b => b.classList.remove('selected'));
     btn.classList.add('selected');
-    
+
     const outstationFields = document.getElementById('outstationFields');
     const localFields = document.getElementById('localFields');
     if (outstationFields && localFields) {
@@ -232,7 +232,7 @@ function preselectTripFromURL() {
   // Support both 'service' (ours) and 'type' (contributor's)
   const service = params.get('service') || params.get('type');
   const fromParam = params.get('from');
-  const toParam   = params.get('to');
+  const toParam = params.get('to');
 
   if (service) {
     const targetBtn = document.querySelector(`.trip-type-btn[data-type="${service}"]`);
