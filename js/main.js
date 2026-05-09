@@ -159,6 +159,11 @@ document.querySelectorAll('form').forEach(form => {
     });
     if (!valid) return;
 
+    // Track conversion
+    if (typeof gtag === 'function') {
+      gtag('event', 'conversion', {'send_to': 'AW-17041560354/9kmlCNvXqKocEKKmhr4_'});
+    }
+
     // Build message and open WhatsApp
     const message = buildWhatsAppMessage(form);
     const encoded = encodeURIComponent(message);
@@ -542,3 +547,15 @@ function initCityAutocomplete() {
   });
 }
 initCityAutocomplete();
+
+/* ── Google Ads Event Tracking ── */
+document.addEventListener('click', function(e) {
+  const link = e.target.closest('a');
+  if (link && link.href) {
+    if (link.href.includes('tel:') || link.href.includes('wa.me')) {
+      if (typeof gtag === 'function') {
+        gtag('event', 'conversion', {'send_to': 'AW-17041560354/9kmlCNvXqKocEKKmhr4_'});
+      }
+    }
+  }
+});
